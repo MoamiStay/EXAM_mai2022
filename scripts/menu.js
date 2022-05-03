@@ -1,5 +1,14 @@
 const menu = document.querySelector("nav");
-const menuButton = document.querySelector("#ham_menu");
+const showMenu = document.querySelector("#ham_menu"); //home "menu" button
+const hideMenu = document.querySelector("#backButton"); //menu "back" button
 
-menuButton.addEventListener("click", (toggle) => {menuButton.classList.toggle("hidden-nav")});
 
+showMenu.onclick = function() {showMe()};
+hideMenu.onclick = function() {hideMe()};
+
+
+function showMe() {
+    menu.classList.toggle("nav-hidden");}
+
+function hideMe() {
+    menu.classList.toggle("nav-hidden");}

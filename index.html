@@ -13,13 +13,14 @@
     />
     <link href="styles.css" rel="stylesheet" />
     <script src="scripts/menu.js" defer></script>
-    <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/carousel.js" defer></script>
+    <!-- <script src="scripts/scripts.js" defer></script> -->
   </head>
 
   <body>
     <header>
       <nav class="nav-hidden">
-        <button type="button">BACK</button>
+        <button id="backButton" type="button">BACK</button>
         <ul>
           <li><a href="index.html">HOME</a></li>
           <li><a href="disc.html">DISCOGRAPHY</a></li>
@@ -58,29 +59,13 @@
     </header>
 
     <main>
-      <section id="carousel">
-        <h1>RELEASES</h1>
-        <div class="hideleft">
-          <img src="image" />
-        </div>
-        <div class="lastleft">
-          <img src="image" />
-        </div>
-        <div class="previous">
-          <img src="image" />
-        </div>
-        <div class="current">
-          <img src="image" />
-        </div>
-        <div class="next">
-          <img src="image" />
-        </div>
-        <div class="lastright">
-          <img src="image" />
-        </div>
-        <div class="hideright">
-          <img src="image" />
-        </div>
+      <h1>RELEASES</h1>
+      <section id="carousel-section">
+        <div class="lastleft turn-left"></div>
+        <div class="previous turn-left"></div>
+        <div class="current"></div>
+        <div class="next turn-right"></div>
+        <div class="lastright turn-right"></div>
       </section>
 
       <section id="profile" class="style-border">

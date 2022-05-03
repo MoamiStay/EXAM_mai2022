@@ -24,3 +24,5 @@ https://momis.world/exam1/wp-json/wp/v2/media?parent=62
 Something loads too quick and fucks up the fetch sometimes on disc.html. Messes up the "loading..." as well. Find out what it is and "delay" it or re-organize the code. **Error: listPosts not defined**
 
 add "title" to each page
+
+why does the ID increment by 1 at default? .. need to put -1 is call
