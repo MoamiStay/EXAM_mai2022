@@ -3,7 +3,7 @@ let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media";
 const out = document.querySelector("#posts");
 const loadBtn = document.querySelector("#load-more");
 let albumTitles = [""];
-let data = ""
+let data = "";
 
 //To get Title
 let allPosts;
@@ -36,7 +36,7 @@ fetch(urlImg)
 .then((parsedData) => {
     setTimeout(() => {
         listCovers(parsedData);
-        allPosts = parsedData;}, 1000);
+        allPosts = parsedData;}, 1500);
 })
 .catch((error) => (out.innerHTML = "Second place!" + error))
 .finally(() => document.querySelector(".loader").remove())

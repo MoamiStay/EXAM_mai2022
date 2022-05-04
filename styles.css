@@ -9,36 +9,167 @@
 
 /* * {border: 1px solid white;} */
 
-body { margin: 0; background-image: linear-gradient(#3F3F3F, #000000); }
-h1, h2, h3, nav li a {font-family: 'Anton', sans-serif; color: var(--woodz-orange); letter-spacing: 0.04rem;}
-h1, h2 {display: flex; flex-direction: column; align-items: flex-end; }
-.hidden, .nav-hidden { display: none;}
-img { filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 0.25));;}
+body {
+    margin: 0;
+    background-image: linear-gradient(#3F3F3F, #000000);
+}
 
-a {text-decoration: none;}
+h1,
+h2,
+h3,
+nav li a {
+    font-family: 'Anton', sans-serif;
+    color: var(--woodz-orange);
+    letter-spacing: 0.04rem;
+}
 
-header picture img {max-width: 100%; position: relative; top: -35px;}
-header > div {display: flex; flex-direction: column; align-items: flex-end;}
-header > div > button {width: 60px; position: relative; right: 30px; top: 25px; z-index: 1;}
-header > div > button > img {height: 25px; }
-button { background-color: transparent;   color: white;   border-color: transparent; }
-ul, li, li > a { margin: 0; padding: 0; text-decoration: none; list-style-type: none; color: white; ;}
+h1,
+h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
-nav {display: flex; flex-direction: column; align-items: center; background-color: var(--background-black); height: 100vh; width: 100%; z-index: 2; position: fixed }
-nav button {position: fixed; right: 0px;}
-nav ul {margin: auto;}
+.hidden,
+.nav-hidden {
+    display: none;
+}
 
-.style-border, .style-border a {display: flex; flex-direction: column; align-items: flex-end; margin: auto; max-width: 80%;}
-.style-border div { display: flex; justify-content: flex-end; max-width: 100%; border: 1px solid white; }
-.style-border h2 { flex-direction: row; align-items: baseline}
-.style-border img { max-width: 100%; position: relative; left: 10px; top: 10px; }
-.style-border span {font-size: x-small; }
-.style-border h2 {border-bottom: 2px solid var(--woodz-blue); margin-bottom: 7px; padding-left: 20px;}
+img {
+    filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 0.25));
+    ;
+}
 
-footer { padding-top: 50px; text-align: center; display: grid; grid-template-columns: auto auto auto; font-size: 0.5rem; } 
+a {
+    text-decoration: none;
+}
 
-#posts {display: flex; flex-direction: column; align-items: center; }
-#posts div {max-width: 80%;}
-#posts img {max-width: 100%;}
+header picture img {
+    max-width: 100%;
+    position: relative;
+    top: -35px;
+}
 
-#carousel-section { display: flex; justify-content: center;}
+header>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+header>div>button {
+    width: 60px;
+    position: relative;
+    right: 30px;
+    top: 25px;
+    z-index: 1;
+}
+
+header>div>button>img {
+    height: 25px;
+}
+
+button {
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+}
+
+ul,
+li,
+li>a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    ;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-black);
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+    position: fixed
+}
+
+nav button {
+    position: fixed;
+    right: 0px;
+}
+
+nav ul {
+    margin: auto;
+}
+
+.style-border,
+.style-border a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: auto;
+    max-width: 80%;
+}
+
+.style-border div {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 100%;
+    border: 1px solid white;
+}
+
+.style-border h2 {
+    flex-direction: row;
+    align-items: baseline
+}
+
+.style-border img {
+    max-width: 100%;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+
+.style-border span {
+    font-size: x-small;
+}
+
+.style-border h2 {
+    border-bottom: 2px solid var(--woodz-blue);
+    margin-bottom: 7px;
+    padding-left: 20px;
+}
+
+footer {
+    padding-top: 50px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    font-size: 0.5rem;
+}
+
+#posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#posts div {
+    max-width: 80%;
+}
+
+#posts img {
+    max-width: 100%;
+}
+
+#carousel-section {
+    display: flex;
+    justify-content: center;
+}
+
+#carousel-section img {
+    max-width: 100%;
+}
