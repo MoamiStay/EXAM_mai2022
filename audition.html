@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | WOODZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="scripts/menu.js" defer></script>
+    <!-- <script src="scripts/scripts.js" defer></script> -->
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav-hidden">
+        <button id="backButton" type="button">BACK</button>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="disc.html">DISCOGRAPHY</a></li>
+          <li><a href="profile.html">PROFILE</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li>
+            <a href="audition.html"
+              ><p>LABEL</p>
+              AUDITION</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <button id="ham_menu" type="button">
+          <img src="media/logo.png" alt="menu" />
+        </button>
+
+        <picture>
+          <source
+            srcset="media/hero-large-1920-220k.jpg"
+            media="(min-width:1440px"
+          />
+          <source
+            srcset="media/hero-small-1440-32k.jpg"
+            media="(min-width:962px"
+          />
+          <source
+            srcset="media/tablet-hero-962-133k.jpg"
+            media="(min-width:480px"
+          />
+          <img
+            src="media/headerlogo-1440-164k.jpg"
+            alt="closeup image of woodz from colorful trauma promotion images"
+          />
+        </picture>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <!-- NEED TO ALSO INCLUDE PASSWORD AND ?...? -->
+        <h1>AUDITION</h1>
+        <p>Noroff entertainment</p>
+        <p>APPLICATION</p>
+        <input type="radio" id="singer" name="application" value="singer" />
+        <label for="singer">Singer</label>
+        <input type="radio" id="model" name="application" value="model" />
+        <label for="model">Model</label>
+        <input type="radio" id="actor" name="application" value="actor" />
+        <label for="actor">Actor</label>
+        <input type="radio" id="mc" name="application" value="mc" />
+        <label for="mc">MC</label>
+
+        <h4>NAME</h4>
+        <!-- <label for="fullname">NAME</label> -->
+        <input type="text" id="fullname" name="fullname" />
+
+        <h4>GENDER</h4>
+        <input type="radio" id="female" name="application" value="female" />
+        <label for="female">Female</label>
+        <input type="radio" id="male" name="application" value="male" />
+        <label for="male">Male</label>
+
+        <h4>DATE OF BIRTH</h4>
+
+        <h4>EMAIL</h4>
+        <!-- <label for="email">EMAIL</label> -->
+        <input type="email" id="email" name="email" />
+
+        <h4>CREATE PASSWORD</h4>
+        <!-- <label for="password">CREATE PASSWORD</label> -->
+        <input type="text" id="password" name="password" />
+
+        <h4>ABOUT YOURSELF</h4>
+        <!-- <label for="about">ABOUT YOURSELF</label> -->
+        <input type="text" id="about" name="about" />
+      </section>
+    </main>
+
+    <footer>
+      <ul>
+        <li>example</li>
+        <li>example</li>
+      </ul>
+      <ul>
+        <li>example</li>
+        <li>example</li>
+      </ul>
+      <ul>
+        <li>example</li>
+        <li>example</li>
+      </ul>
+    </footer>
+  </body>
+</html>

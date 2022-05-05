@@ -26,3 +26,9 @@ Something loads too quick and fucks up the fetch sometimes on disc.html. Messes 
 add "title" to each page
 
 why does the ID increment by 1 at default? .. need to put -1 is call
+
+fix header img for largest screensize
+
+loading background .. and loader
+
+links fram carousel to details page
