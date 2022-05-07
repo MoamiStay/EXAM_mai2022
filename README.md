@@ -32,3 +32,7 @@ fix header img for largest screensize
 loading background .. and loader
 
 links fram carousel to details page
+
+legg til alt_text på album cover inne på backend
+
+make 404 page

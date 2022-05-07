@@ -4,9 +4,9 @@ if (!id) {
     window.location = "disc.html";
 }
 
-console.log(id);
+console.log(id-1);
 
-const urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts/${id-1}`
+const urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts/${Number(id)-1}`
 const outTitle = document.querySelector(".titleHeader");
 const out = document.querySelector("#post");
 let data = ""
@@ -24,7 +24,7 @@ fetch(urlPosts)
     allPosts = data;
 })
 .catch((error) => (out.innerHTML = "A wild error appeared!" + error))
-// .finally(() => document.querySelector(".loader").remove());
+.finally(() => document.querySelector(".loader").remove());
 
 // -------------------------------------------
 

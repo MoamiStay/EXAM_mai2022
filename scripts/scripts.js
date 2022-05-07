@@ -60,10 +60,16 @@ function listCovers(posts) {
     loadBtn.classList.toggle("hidden");
 };
 
-loadBtn.addEventListener("click", loadMore);
 
-function loadMore() {
-    console.log("katten til per");
-    let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=20";
-    let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
-}
+
+
+
+
+
+// loadBtn.addEventListener("click", loadMore);
+
+// function loadMore() {
+//     // console.log("katten til per");
+//     let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=20";
+//     let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
+// }

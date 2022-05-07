@@ -2,10 +2,10 @@ const carouselSection = document.querySelector("#carousel-section");
 const cover1 = document.querySelector(".cover1");
 const cover2 = document.querySelector(".cover2");
 const cover3 = document.querySelector(".cover3");
-const cover4 = document.querySelector(".cover4");
 const toLeft = document.querySelector(".turn-left");
 const toRight = document.querySelector(".turn-right");
 let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
+let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=20";
 
 let allImg;
 fetch(urlImg)
@@ -14,73 +14,96 @@ fetch(urlImg)
 .catch((error) => (carouselSection.innerHTML = "A wild error appeared: " + error))
 .finally(() => document.querySelector(".loader").remove())
 
+let allPosts;
+fetch(urlPosts)
+.then((response) => response.json())
+.then((parsedData) => {linkDetails(parsedData); allPosts = parsedData})
+.catch((error) => (carouselSection.innerHTML = "First place!" + error))
 
-//----
 
+//// PUT COVERS, ALT-TEXT AND DETAILS LINK IN ARRAY ////
 let albums = []; 
+let alt = [];
 function postsArray(allImg) {
+    // console.log(allImg);
     for(item of allImg) {
         let link = (item.guid.rendered);
+        let altText = (item.alt_text);
         albums.push(link);
+        alt.push(altText);
     }
-    return albums;
+    return albums, alt;
 };
 
-let first = 0;
-let second = 1;
-let third = 2;
-let fourth = 3;
-
-setTimeout(function(allImg) {
-    // console.log(allImg);
-    for(let i = 0; i < Object.keys(albums).length; i++) {
-        cover1.innerHTML = `<div><img src="${albums[first]}" alt="yo"></div>`;
-        cover2.innerHTML = `<div><img src="${albums[second]}" alt="yo"></div>`;
-        cover3.innerHTML = `<div><img src="${albums[third]}" alt="yo"></div>`;
-        cover4.innerHTML = `<div><img src="${albums[fourth]}" alt="yo"></div>`;
+let links = []; //ID
+ function linkDetails(data) {
+    // console.log(data);
+    for(post of data) {
+        let link = (post.id);
+        links.push(link);
     }
-}, 1000);
+    return links;
+};
+
+//// GET CORRESPONDING NUMBER FOR EACH POST ////
+let last;
+let first = 0;
+let third = 1;
+
+setTimeout(function() {
+    last = Object.keys(albums).length-1;
+    return last;
+ }, 400);
+
+
+
+setTimeout(function() {
+    // console.log(alt);
+    // console.log(albums);
+    // console.log(last);
+    for(let i = 0; i < Object.keys(albums).length; i++) {
+        console.log(links[first]+1);
+        cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
+        cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+        cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
+    }
+}, 500);
 
 toRight.addEventListener("click", turnLeft);
+cover3.addEventListener("click", turnLeft);
 toLeft.addEventListener("click", turnRight);
-
+cover1.addEventListener("click", turnRight);
 
 function turnLeft() {
+    console.log("turnLeft");
+    last = last+1;
     first = first+1;
-    second = second+1;
     third = third+1;
-    fourth = fourth+1;
     
+    if(last >= 15) {last = 0};
     if(first >= 15) {first = 0};
-    if(second >= 15) {second = 0};
     if(third >= 15) {third = 0};
-    if(fourth >= 15) {fourth = 0};
-    console.log(first, second, third, fourth);
+    console.log(last, first, third);
 
-        cover1.innerHTML = `<div><img src="${albums[first]}" alt="yo"></div>`;
-        cover2.innerHTML = `<div><img src="${albums[second]}" alt="yo"></div>`;
-        cover3.innerHTML = `<div><img src="${albums[third]}" alt="yo"></div>`;
-        cover4.innerHTML = `<div><img src="${albums[fourth]}" alt="yo"></div>`;
+        cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
+        cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+        cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
 };
 
 function turnRight() {
     first = first-1;
-    second = second-1;
+    last = last-1;
     third = third-1;
-    fourth = fourth-1;
     
+    if(last >= 15) {last = 0};
+    if(last == -1) {last = 14};
     if(first >= 15) {first = 0};
     if(first == -1) {first = 14};
-    if(second >= 15) {second = 0};
-    if(second == -1) {second = 14};
     if(third >= 15) {third = 0};
     if(third == -1) {third = 14};
-    if(fourth >= 15) {fourth = 0};
-    if(fourth == -1) {fourth = 14};
-    console.log(first, second, third, fourth);
+    console.log(first, last, third);
 
-        cover1.innerHTML = `<div><img src="${albums[first]}" alt="yo"></div>`;
-        cover2.innerHTML = `<div><img src="${albums[second]}" alt="yo"></div>`;
-        cover3.innerHTML = `<div><img src="${albums[third]}" alt="yo"></div>`;
-        cover4.innerHTML = `<div><img src="${albums[fourth]}" alt="yo"></div>`;
+        cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
+        cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+        cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
 };
