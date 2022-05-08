@@ -39,7 +39,7 @@ fetch(urlImg)
         allPosts = parsedData;}, 1500);
 })
 .catch((error) => (out.innerHTML = "Second place!" + error))
-.finally(() => document.querySelector(".loader").remove())
+// .finally(() => document.querySelector("#spinner").remove())
 
 
 function listCovers(posts) {

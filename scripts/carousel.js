@@ -12,7 +12,7 @@ fetch(urlImg)
 .then((response) => response.json())
 .then((parsedData) => {postsArray(parsedData); allImg = parsedData;})
 .catch((error) => (carouselSection.innerHTML = "A wild error appeared: " + error))
-.finally(() => document.querySelector(".loader").remove())
+.finally(() => document.querySelector("#spinner").remove())
 
 let allPosts;
 fetch(urlPosts)
@@ -62,12 +62,12 @@ setTimeout(function() {
     // console.log(albums);
     // console.log(last);
     for(let i = 0; i < Object.keys(albums).length; i++) {
-        console.log(links[first]+1);
+        // console.log(links[first]+1);
         cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
         cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
         cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
     }
-}, 500);
+}, 700);
 
 toRight.addEventListener("click", turnLeft);
 cover3.addEventListener("click", turnLeft);
