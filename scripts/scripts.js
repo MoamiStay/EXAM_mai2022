@@ -28,7 +28,6 @@ function getTitles(titles) {
     return albumTitles;
 }
 
-
 //To get cover image
 let allCovers;
 fetch(urlImg)
@@ -36,10 +35,12 @@ fetch(urlImg)
 .then((parsedData) => {
     setTimeout(() => {
         listCovers(parsedData);
+        document.querySelector("main").style.backgroundColor = "transparent";
+        document.querySelector("header").style.backgroundColor = "transparent";
         allPosts = parsedData;}, 1500);
 })
 .catch((error) => (out.innerHTML = "Second place!" + error))
-// .finally(() => document.querySelector("#spinner").remove())
+.finally(() => {document.querySelector("#spinner").remove()})
 
 
 function listCovers(posts) {
@@ -56,7 +57,7 @@ function listCovers(posts) {
              <h3>${albumTitles[counter].rendered}</h3>
          </a>
         </div>`
-    }
+}
     loadBtn.classList.toggle("hidden");
 };
 

@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gallery and media collection for WOODZ."
+    />
     <title>Gallery | WOODZ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,11 +22,12 @@
     />
     <link href="styles.css" rel="stylesheet" />
     <script src="scripts/menu.js" defer></script>
+    <script src="scripts/gallery.js" defer></script>
     <!-- <script src="scripts/scripts.js" defer></script> -->
   </head>
 
   <body>
-    <header>
+    <header class="load-bg">
       <nav class="nav-hidden">
         <button id="backButton" type="button">BACK</button>
         <ul>
@@ -62,9 +67,11 @@
       </div>
     </header>
 
-    <main>
+    <main class="load-bg">
       <h1>GALLERY</h1>
-      <section></section>
+      <section id="gallery">
+        <img src="media/loaderi.gif" id="spinner" />
+      </section>
     </main>
 
     <footer>

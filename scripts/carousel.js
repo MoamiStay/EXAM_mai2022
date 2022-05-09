@@ -4,15 +4,18 @@ const cover2 = document.querySelector(".cover2");
 const cover3 = document.querySelector(".cover3");
 const toLeft = document.querySelector(".turn-left");
 const toRight = document.querySelector(".turn-right");
-let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
-let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=20";
+let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=50";
+let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=50";
 
 let allImg;
 fetch(urlImg)
 .then((response) => response.json())
 .then((parsedData) => {postsArray(parsedData); allImg = parsedData;})
 .catch((error) => (carouselSection.innerHTML = "A wild error appeared: " + error))
-.finally(() => document.querySelector("#spinner").remove())
+.finally(() => { document.querySelector("#spinner").remove(); 
+document.querySelector("main").style.backgroundColor = "transparent";
+document.querySelector("header").style.backgroundColor = "transparent";
+})
 
 let allPosts;
 fetch(urlPosts)
@@ -27,10 +30,13 @@ let alt = [];
 function postsArray(allImg) {
     // console.log(allImg);
     for(item of allImg) {
-        let link = (item.guid.rendered);
+        // console.log(item.caption.rendered.indexOf("gallery")); // "gallery" is only included in img that are in gallery.
+        if(item.caption.rendered.indexOf("gallery") === -1) { // only get images that are not part of gallery. (just albums)
+        let link = (item.guid.rendered); 
         let altText = (item.alt_text);
         albums.push(link);
         alt.push(altText);
+        } else continue;
     }
     return albums, alt;
 };
@@ -39,8 +45,11 @@ let links = []; //ID
  function linkDetails(data) {
     // console.log(data);
     for(post of data) {
+        // console.log(post.categories[0] === 3);
+        if(post.categories[0] === 3) { //only get posts under category: albums (category 3)
         let link = (post.id);
-        links.push(link);
+        links.push(link); 
+    } else continue;
     }
     return links;
 };

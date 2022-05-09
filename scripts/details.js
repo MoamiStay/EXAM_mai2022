@@ -25,7 +25,11 @@ fetch(urlPosts)
     allPosts = data;
 })
 .catch((error) => (out.innerHTML = "A wild error appeared!" + error))
-.finally(() => document.querySelector("#spinner").remove());
+.finally(() => {
+    document.querySelector("main").style.backgroundColor = "transparent";
+    document.querySelector("header").style.backgroundColor = "transparent";
+    document.querySelector("#spinner").remove()
+});
 
 // -------------------------------------------
 
