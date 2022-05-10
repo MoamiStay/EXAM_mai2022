@@ -41,10 +41,11 @@ function postsArray(allImg) {
     return albums, alt;
 };
 
-let links = []; //ID
+let links = [];
  function linkDetails(data) {
     // console.log(data);
     for(post of data) {
+        // get links to individual pages
         // console.log(post.categories[0] === 3);
         if(post.categories[0] === 3) { //only get posts under category: albums (category 3)
         let link = (post.id);

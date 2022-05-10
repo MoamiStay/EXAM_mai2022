@@ -22,6 +22,7 @@
     />
     <link href="styles.css" rel="stylesheet" />
     <script src="scripts/menu.js" defer></script>
+    <script src="scripts/form.js" defer></script>
     <!-- <script src="scripts/scripts.js" defer></script> -->
   </head>
 
@@ -71,42 +72,100 @@
 
     <main>
       <h1>AUDITION</h1>
+      <div id="responsMsg"></div>
       <section id="form">
         <!-- NEED TO ALSO INCLUDE PASSWORD AND ?...? -->
         <p>Noroff entertainment</p>
-        <p>APPLICATION</p>
-        <input type="radio" id="singer" name="application" value="singer" />
-        <label for="singer">Singer</label>
-        <input type="radio" id="model" name="application" value="model" />
-        <label for="model">Model</label>
-        <input type="radio" id="actor" name="application" value="actor" />
-        <label for="actor">Actor</label>
-        <input type="radio" id="mc" name="application" value="mc" />
-        <label for="mc">MC</label>
+        <!-- action="not/given" method="get" -->
+        <form id="myForm">
+          <ul>
+            <li>
+              <p>APPLICATION</p>
+              <span id="applicationMsg"></span>
+            </li>
+            <li>
+              <input
+                type="radio"
+                id="singer"
+                name="application"
+                value="singer"
+              />
+              <label for="singer">Singer</label>
+            </li>
+            <li>
+              <input type="radio" id="model" name="application" value="model" />
+              <label for="model">Model</label>
+            </li>
+            <li>
+              <input type="radio" id="actor" name="application" value="actor" />
+              <label for="actor">Actor</label>
+            </li>
+            <li>
+              <input type="radio" id="mc" name="application" value="mc" />
+              <label for="mc">MC</label>
+            </li>
 
-        <h4>NAME</h4>
-        <!-- <label for="fullname">NAME</label> -->
-        <input type="text" id="fullname" name="fullname" />
+            <li>
+              <h4>NAME</h4>
+              <span id="nameMsg"></span>
+            </li>
+            <!-- <label for="fullname">NAME</label> -->
+            <li><input type="text" id="fullname" name="fullname" /></li>
 
-        <h4>GENDER</h4>
-        <input type="radio" id="female" name="application" value="female" />
-        <label for="female">Female</label>
-        <input type="radio" id="male" name="application" value="male" />
-        <label for="male">Male</label>
+            <li>
+              <h4>GENDER</h4>
+              <span id="genderMsg"></span>
+            </li>
+            <li>
+              <input
+                type="radio"
+                id="female"
+                name="application"
+                value="female"
+              />
+              <label for="female">Female</label>
+            </li>
+            <li>
+              <input type="radio" id="male" name="application" value="male" />
+              <label for="male">Male</label>
+            </li>
 
-        <h4>DATE OF BIRTH</h4>
+            <!-- <h4>DATE OF BIRTH</h4> -->
+            <!-- <input
+            type="date"
+            id="birth"
+            name="birth-date"
+            value="DD-MM-YYYY"
+            min="31-12-1900"
+            max="31-12-2022"
+          /> -->
 
-        <h4>EMAIL</h4>
-        <!-- <label for="email">EMAIL</label> -->
-        <input type="email" id="email" name="email" />
+            <li>
+              <h4>EMAIL</h4>
+              <span id="emailMsg"></span>
+            </li>
+            <!-- <label for="email">EMAIL</label> -->
+            <li><input type="email" id="email" name="email" /></li>
 
-        <h4>CREATE PASSWORD</h4>
-        <!-- <label for="password">CREATE PASSWORD</label> -->
-        <input type="text" id="password" name="password" />
+            <li>
+              <h4>CREATE PASSWORD</h4>
+              <span id="passwordMsg"></span>
+            </li>
+            <!-- <label for="password">CREATE PASSWORD</label> -->
+            <li><input type="text" id="password" name="password" /></li>
 
-        <h4>ABOUT YOURSELF</h4>
-        <!-- <label for="about">ABOUT YOURSELF</label> -->
-        <input type="text" id="about" name="about" />
+            <li>
+              <h4>ABOUT YOURSELF</h4>
+              <span id="aboutMsg"></span>
+            </li>
+            <!-- <label for="about">ABOUT YOURSELF</label> -->
+            <li><textarea id="text" name="about"></textarea></li>
+
+            <li>
+              <button id="submit" type="button">APPLY</button>
+            </li>
+          </ul>
+        </form>
       </section>
     </main>
 
