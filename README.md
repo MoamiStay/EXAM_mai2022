@@ -21,6 +21,12 @@ https://momis.world/exam1/wp-json/wp/v2/media?parent=62
 
 ---
 
+filter dropdown
+https://www.w3schools.com/howto/howto_js_filter_dropdown.asp
+
+buttons greyscale
+https://stackoverflow.com/questions/4253920/how-do-i-change-the-color-of-radio-buttons
+
 Something loads too quick and fucks up the fetch sometimes on disc.html. Messes up the "loading..." as well. Find out what it is and "delay" it or re-organize the code. **Error: listPosts not defined**
 
 add "title" to each page

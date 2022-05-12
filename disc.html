@@ -12,6 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/7298bdb0c3.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="shortcut icon"
       type="image/x-icon"
@@ -25,10 +29,19 @@
   <body>
     <header class="load-bg">
       <nav class="nav-hidden">
-        <button id="backButton" type="button">BACK</button>
+        <button id="backButton" type="button">
+          <img src="media/back-icon.png" />
+          <p>BACK</p>
+        </button>
         <ul>
           <li><a href="index.html">HOME</a></li>
-          <li><a href="disc.html">DISCOGRAPHY</a></li>
+          <li>
+            <a
+              href="disc.html"
+              style="text-decoration: underline 7px var(--woodz-blue)"
+              >DISCOGRAPHY</a
+            >
+          </li>
           <li><a href="profile.html">PROFILE</a></li>
           <li><a href="gallery.html">GALLERY</a></li>
           <li>
@@ -68,10 +81,36 @@
 
     <main class="load-bg">
       <h1>DISCOGRAPHY</h1>
+
+      <div id="filter">
+        <button>MOST RECENT <i class="fa fa-solid fa-caret-down"></i></button>
+        <div id="dropdown" class="hidden">
+          <button>MOST RECENT</button>
+          <button>OLDEST</button>
+          <button>ALFABETICAL</button>
+        </div>
+      </div>
+
       <section id="posts">
         <img src="media/loaderi.gif" id="spinner" alt="loader" />
       </section>
-      <button id="load-more" class="hidden" type="button">LOAD MORE</button>
+      <div id="load-more" class="hidden">
+        <button type="button">LOAD MORE</button>
+      </div>
     </main>
+    <footer>
+      <ul>
+        <li>LABEL</li>
+        <li><a href="audition.html">Audition</a></li>
+      </ul>
+      <ul>
+        <li>Address, 321, Hillside Woods 42, Country</li>
+        <li>E-mail: label_address@email.com</li>
+      </ul>
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Copyrights 2022</li>
+      </ul>
+    </footer>
   </body>
 </html>

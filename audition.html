@@ -29,7 +29,10 @@
   <body>
     <header>
       <nav class="nav-hidden">
-        <button id="backButton" type="button">BACK</button>
+        <button id="backButton" type="button">
+          <img src="media/back-icon.png" />
+          <p>BACK</p>
+        </button>
         <ul>
           <li><a href="index.html">HOME</a></li>
           <li><a href="disc.html">DISCOGRAPHY</a></li>
@@ -38,7 +41,9 @@
           <li>
             <a href="audition.html"
               ><p>LABEL</p>
-              AUDITION</a
+              <u style="text-decoration: underline 7px var(--woodz-blue)"
+                >AUDITION</u
+              ></a
             >
           </li>
         </ul>
@@ -72,15 +77,12 @@
 
     <main>
       <h1>AUDITION</h1>
-      <div id="responsMsg"></div>
       <section id="form">
-        <!-- NEED TO ALSO INCLUDE PASSWORD AND ?...? -->
-        <p>Noroff entertainment</p>
         <!-- action="not/given" method="get" -->
         <form id="myForm">
           <ul>
             <li>
-              <p>APPLICATION</p>
+              <h4>APPLICATION</h4>
               <span id="applicationMsg"></span>
             </li>
             <li>
@@ -91,16 +93,13 @@
                 value="singer"
               />
               <label for="singer">Singer</label>
-            </li>
-            <li>
+
               <input type="radio" id="model" name="application" value="model" />
               <label for="model">Model</label>
-            </li>
-            <li>
+
               <input type="radio" id="actor" name="application" value="actor" />
               <label for="actor">Actor</label>
-            </li>
-            <li>
+
               <input type="radio" id="mc" name="application" value="mc" />
               <label for="mc">MC</label>
             </li>
@@ -117,28 +116,12 @@
               <span id="genderMsg"></span>
             </li>
             <li>
-              <input
-                type="radio"
-                id="female"
-                name="application"
-                value="female"
-              />
+              <input type="radio" id="female" name="gender" value="female" />
               <label for="female">Female</label>
-            </li>
-            <li>
-              <input type="radio" id="male" name="application" value="male" />
+
+              <input type="radio" id="male" name="gender" value="male" />
               <label for="male">Male</label>
             </li>
-
-            <!-- <h4>DATE OF BIRTH</h4> -->
-            <!-- <input
-            type="date"
-            id="birth"
-            name="birth-date"
-            value="DD-MM-YYYY"
-            min="31-12-1900"
-            max="31-12-2022"
-          /> -->
 
             <li>
               <h4>EMAIL</h4>
@@ -160,11 +143,9 @@
             </li>
             <!-- <label for="about">ABOUT YOURSELF</label> -->
             <li><textarea id="text" name="about"></textarea></li>
-
-            <li>
-              <button id="submit" type="button">APPLY</button>
-            </li>
           </ul>
+          <div id="responsMsg"></div>
+          <button id="submit" type="button">APPLY</button>
         </form>
       </section>
     </main>

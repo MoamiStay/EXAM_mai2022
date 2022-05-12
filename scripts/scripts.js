@@ -1,5 +1,5 @@
-let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=50";
-let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=50";
+let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=30";
+let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=30";
 const out = document.querySelector("#posts");
 const loadBtn = document.querySelector("#load-more");
 let albumTitles = [""];
@@ -82,6 +82,7 @@ loadBtn.addEventListener("click", loadMore);
 
 function loadMore() {
     for(post of covers) {
+        console.log(post);
         if(counter <= counter + 10) {
           out.innerHTML += `
           <div>

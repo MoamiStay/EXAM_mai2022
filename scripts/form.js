@@ -39,7 +39,7 @@ function validateForm(check) {
     console.log("Name: " + submittedName);
     nameMsg.innerHTML = "";
     responsMsg.innerHTML = "";
-    if(submittedName.length <= 4) { // Input må være minst 5 karakterer
+    if(submittedName.length <= 5) { // Input må være mer enn 5 karakterer
     nameMsg.innerHTML = "Please enter a valid name";
     } border(myName, nameMsg);
 
@@ -54,22 +54,24 @@ emailMsg.innerHTML = "Please enter a valid email";
 let submittedPassword = password.value.trim();
 console.log("Password: " + submittedPassword);
 passwordMsg.innerHTML = "";
-if(!submittedPassword || submittedPassword.length >= 16) { // Man kan skrive inn et passord som er mellom 1 og 15 karakterer, men ikke mer. (feltet kan heller ikke være tomt)
-passwordMsg.innerHTML = "Password can have max 15 characters.";
+if(submittedPassword.length <= 15) { // Pasordet (subject) må være lengre enn 15 karakterer
+passwordMsg.innerHTML = "Password must be at least 16 characters.";
 } border(password, passwordMsg);
 
 let submittedAbout = about.value.trim();
 console.log("About me: " + submittedAbout);
 aboutMsg.innerHTML = "";
-if(submittedAbout.length <= 25) { // text input må være mer enn 25 karakterer.
+if(submittedAbout.length <= 25) { // text (message content) input må være mer enn 25 karakterer.
 aboutMsg.innerHTML = "Please enter a minimum of 26 characters.";
 } border(about, aboutMsg);
 
 // Display error message on the top of the page
 if(nameMsg.innerHTML === "" && passwordMsg.innerHTML === "" && emailMsg.innerHTML === "" && aboutMsg.innerHTML === "") {
-    responsMsg.innerHTML = "All good to go!";
-} else { responsMsg.innerHTML = "Something seems to be missing.. Please check again.";
-responsMsg.style.fontSize = "1.4em";
+    form.innerHTML = `<p class="align">All good to go!</p>
+    <a class="align" href="index.html"><p>Back to homepage</p></a>"`;
+    form.querySelector("p").style.fontSize = "2rem";
+
+} else { responsMsg.innerHTML = `<p>Something seems to be missing.. <br> Please check again</p>`;
 }
 
 // error message for radio buttons in application
