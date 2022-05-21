@@ -66,6 +66,7 @@ h3 {
     margin-top: 0;
     padding-left: 50px;
     border-bottom: 2px solid var(--woodz-blue);
+    /* font-size: 1rem; */
 }
 
 .text-p p {
@@ -73,7 +74,7 @@ h3 {
     max-width: 70%;
 }
 
-p, li, label, h4, input, textarea {
+p, li, label, h4, input, textarea, button {
     color: aliceblue;
     font-family: "Montserrat", "Arial", "Verdana", "Georgia";
 }
@@ -216,6 +217,7 @@ nav ul {
 #posts {
     clear: both;
     align-items: center;
+    justify-items: center;
 }
 
 #posts div {
@@ -226,7 +228,6 @@ nav ul {
 #posts img {
     max-width: 100%;
 }
-
 
 #filter {
     align-items: center;
@@ -245,11 +246,14 @@ nav ul {
 
 #post {
     max-width: 100%;
+    position: relative;
+    top: -90px;
 }
 
-#post div figure {
-    margin: auto;
-    width: 70%;
+#post > div > p {
+    padding: 15px 10px 10px 0;
+    position: relative;
+    top: -50px;
 }
 
 #post img {
@@ -295,12 +299,21 @@ nav ul {
     clear: both;
 }
 
-#gallery img {
+#profile-txt p {
+    margin: 20px;
     max-width: 100%;
 }
 
-#gallery {
-    margin: auto;
+#profile-txt .style-border p {
+    padding-bottom: 0px;
+}
+
+#gallery img {
+    max-width: 90%;
+}
+
+#gallery div {
+    justify-items: center;
     clear: both;
     display: grid;
     grid-template-columns: auto;
@@ -309,7 +322,8 @@ nav ul {
 
 #form {
     clear: both;
-    max-width: 85%;
+    width: 85%;
+    max-width: 900px;
     margin: auto;
     background-color: rgb(128, 128, 128, .1);
 }
@@ -330,13 +344,14 @@ input, textarea {
     outline: none;
 }
 
-input[type='text'], input[type='email'], textarea {
+input[type='text'], input[type='email'], input[type='password'], textarea {
     padding: 10px 0 10px 10px;
-    width: 100%;
+    width: 50%;
 }
 
 textarea {
-    height: 120px;
+    height: 150px;
+    width: 100%;
     resize: none;
 }
 
@@ -363,7 +378,7 @@ footer {
 }
 
 nav, header>div, #myForm, h2, #filter, #posts, .style-border,
-.style-border a {
+.style-border a, #posts div a {
     display: flex;
     flex-direction: column;
 }
@@ -372,9 +387,136 @@ h1, #carousel-section, .style-border, #posts div, #dropdown, #filter, #gallery i
     margin-bottom: 60px;
 }
 
+.lightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 70%;
+    max-height: 85%;
+}
+
+.active {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.8);
+}
 
 
-/* #gallery {
-    grid-template-columns: auto auto auto;
-    grid-column: auto auto auto;
-} */
+
+@media screen and (min-width: 480px) {
+
+    #carousel-section {
+        margin: auto;
+        max-width: 70%;
+    }
+
+    #posts {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+    }
+
+    h3 {
+        padding-left: 0;
+        font-size: 150%;
+    }
+
+    #carousel-section {
+        padding-bottom: 120px;
+    }
+
+    .style-border a {
+        max-width: 60%;
+    }
+
+    #post, #post > div > p {
+        position: relative;
+        top: -20px;
+        max-width: 70%;
+    }
+
+    #post div {
+        margin: auto;
+    }
+
+    #profile-txt section {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    #profile-txt p {
+        max-width: 45ch;
+    }
+
+    #profile-txt div {
+        max-width: 60%;
+    }
+
+    #gallery {
+        padding: 60px;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 30px;
+    }
+       
+}
+
+
+@media screen and (min-width: 1280px) {
+    body {
+      margin: auto;
+      max-width: 1920px;
+    }
+
+    #main-page-links {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    #posts {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+
+    .style-border a {
+        max-width: 80%;
+    }
+
+    #post {
+        max-width: 80%;
+        margin: auto;
+    }
+    
+    #post > div > p {
+        float: right;
+        width: 50%;
+        margin: 0;
+    }
+    
+    #post figure {
+        float: left;
+        max-width: 50%;
+        margin: 0;
+    }
+
+    #gallery {
+        padding: 100px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 50px;
+    }
+    
+    footer {
+        clear: both;
+    }
+
+}
