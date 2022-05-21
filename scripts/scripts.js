@@ -1,10 +1,14 @@
-let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=30";
-let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=30";
+let counter = 50;
+current = 0;
+let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?per_page=${counter}`;
+let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?per_page=${counter}`;
 const out = document.querySelector("#posts");
 const loadBtn = document.querySelector("#load-more");
-let albumTitles = [""];
+const loader = document.querySelector("#loadButton");
+let albumTitles = [];
+let covers = [];
 let data = "";
-let counter = 0;
+let dataImg = "";
 
 //To get Title
 let allPosts;
@@ -15,18 +19,54 @@ fetch(urlPosts)
     data = allPosts;
     return data;
 })
-.then((data) => {
-    getTitles(data);
-    allPosts = data;
-})
 .catch((error) => (out.innerHTML = "First place!" + error))
 
 
+//To get cover image
+let allCovers;
+fetch(urlImg)
+.then((response) => response.json())
+.then((parsedData) => {
+    allCovers = parsedData;
+    dataImg = allCovers;
+    return dataImg;
+})
+//     setTimeout(() => {
+//         listCovers(parsedData);
+//         document.querySelector("main").style.backgroundColor = "transparent";
+//         document.querySelector("header").style.backgroundColor = "transparent";
+//         allPosts = parsedData;}, 1500);
+// })
+.catch((error) => (out.innerHTML = "Second place!" + error))
+.finally(() => {document.querySelector("#spinner").remove()})
+
+
+//////////////////////////////////
+
+
+setTimeout(function() {
+getTitles(data);
+listCovers(dataImg);
+}, 2000)
+
+
+
+function listCovers(dataImg) {
+    // out.innerHTML = "";
+    covers = [];
+    for(post of dataImg) {
+        // console.log(post.caption.rendered.indexOf("gallery"));
+        if (post.caption.rendered.indexOf("gallery") === -1) { 
+        covers.push(post);}
+    }
+        return covers;
+    };
+
 
 // Collect all titles in an array
-function getTitles(titles) {
-    // console.log(titles);
-    for(title of titles) {
+function getTitles(data) {
+    albumTitles = [];
+    for(title of data) {
         // console.log(title.categories[0]);
         // console.log(title);
         if(title.categories[0] === 3) {
@@ -35,71 +75,54 @@ function getTitles(titles) {
 };
 
 
-//To get cover image
-let allCovers;
-fetch(urlImg)
-.then((response) => response.json())
-.then((parsedData) => {
-    setTimeout(() => {
-        listCovers(parsedData);
-        document.querySelector("main").style.backgroundColor = "transparent";
-        document.querySelector("header").style.backgroundColor = "transparent";
-        allPosts = parsedData;}, 1500);
-})
-.catch((error) => (out.innerHTML = "Second place!" + error))
-.finally(() => {document.querySelector("#spinner").remove()})
-
-let covers = [];
-function listCovers(posts) {
-    // console.log(posts);
-    out.innerHTML = "";
-
-    for(post of posts) {
-        // console.log(post.caption.rendered.indexOf("gallery"));
-        if (post.caption.rendered.indexOf("gallery") === -1) { 
-        covers.push(post);}
-    }
-        return covers;
-    }
 
 setTimeout(() => {
     for(post of covers) {
-        counter ++;
-        if(counter <= 10) {
+        if(current <= 9) {
           out.innerHTML += `
           <div>
-           <a href="discdetail.html?id=${post.id}">
-               <img src="${post.guid.rendered}" alt="${post.alt_text}">
-               <h3>${albumTitles[counter].rendered}</h3>
+           <a href="discdetail.html?id=${covers[current].id}">
+               <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
+               <h3>${albumTitles[current].rendered}</h3>
            </a>
           </div>`
+          current ++;
+        //   console.log(current);
       } }
       loadBtn.classList.toggle("hidden");
-    }, 2000);
+      return current;
+    }, 2100);
 
 
-loadBtn.addEventListener("click", loadMore);
+
+function plus() {
+    return counter = counter + 30;
+}
+
+function getTitles2() {
+    listCovers(dataImg);
+    getTitles(data);
+}
 
 function loadMore() {
     for(post of covers) {
-        console.log(post);
-        if(counter <= counter + 10) {
+        // console.log(covers);
+        // console.log(current);
+        if(current >= covers.length) {break}
+        if(current <= counter) {
           out.innerHTML += `
           <div>
-           <a href="discdetail.html?id=${post.id}">
-               <img src="${post.guid.rendered}" alt="${post.alt_text}">
-               <h3>${albumTitles[counter].rendered}</h3>
+           <a href="discdetail.html?id=${covers[current].id}">
+               <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
+               <h3>${albumTitles[current].rendered}</h3>
            </a>
           </div>`
+          current ++;
       }
+      loader.classList.add("hidden");
     }};
 
-
-
-// loadBtn.addEventListener("click", loadMore);
-
-// function loadMore() {
-//     // console.log("katten til per");
-//     let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=20";
-//     let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
-//  }
+    
+loadBtn.addEventListener("click", plus);
+loadBtn.addEventListener("click", getTitles2);
+loadBtn.addEventListener("click", loadMore);

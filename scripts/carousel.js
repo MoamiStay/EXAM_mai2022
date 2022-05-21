@@ -2,6 +2,7 @@ const carouselSection = document.querySelector("#carousel-section");
 const cover1 = document.querySelector(".cover1");
 const cover2 = document.querySelector(".cover2");
 const cover3 = document.querySelector(".cover3");
+const cover4 = document.querySelector(".cover4");
 const toLeft = document.querySelector(".turn-left");
 const toRight = document.querySelector(".turn-right");
 let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=50";
@@ -56,9 +57,11 @@ let links = [];
 };
 
 //// GET CORRESPONDING NUMBER FOR EACH POST ////
-let last;
 let first = 0;
-let third = 1;
+let second = 1;
+let third = 2;
+let forth = 3;
+
 
 setTimeout(function() {
     last = Object.keys(albums).length-1;
@@ -71,49 +74,54 @@ setTimeout(function() {
     // console.log(alt);
     // console.log(albums);
     // console.log(last);
+    toLeft.disabled = true;
     for(let i = 0; i < Object.keys(albums).length; i++) {
         // console.log(links[first]+1);
-        cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
-        cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+        cover1.innerHTML = `<img src="${albums[first]}" alt="${alt[first]}">`;
+        cover2.innerHTML = `<a href="discdetail.html?id=${links[second]+1}"><img src="${albums[second]}" alt="${alt[first]}"></a>`;
         cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
+        cover4.innerHTML = `<img src="${albums[forth]}" alt="${alt[forth]}">`;
     }
 }, 700);
 
-toRight.addEventListener("click", turnLeft);
-cover3.addEventListener("click", turnLeft);
-toLeft.addEventListener("click", turnRight);
-cover1.addEventListener("click", turnRight);
-
-function turnLeft() {
-    console.log("turnLeft");
-    last = last+1;
-    first = first+1;
-    third = third+1;
-    
-    if(last >= 15) {last = 0};
-    if(first >= 15) {first = 0};
-    if(third >= 15) {third = 0};
-    console.log(last, first, third);
-
-        cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
-        cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
-        cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
-};
+toRight.addEventListener("click", turnRight);
+// cover3.addEventListener("click", turnLeft);
+toLeft.addEventListener("click", turnLeft);
+// cover1.addEventListener("click", turnRight);
 
 function turnRight() {
-    first = first-1;
-    last = last-1;
-    third = third-1;
+    console.log("turnLeft");
+    toLeft.disabled = false;
+    first = first+4;
+    second = second+4;
+    third = third+4;
+    forth = forth+4;
     
-    if(last >= 15) {last = 0};
-    if(last == -1) {last = 14};
-    if(first >= 15) {first = 0};
-    if(first == -1) {first = 14};
-    if(third >= 15) {third = 0};
-    if(third == -1) {third = 14};
-    console.log(first, last, third);
+    if(first >= albums.length) {first = 0};
+    if(second >= albums.length) {second = 1};
+    if(third >= albums.length) {third = 2};
+    if(forth >= albums.length) {cover4.style.display = "none", toRight.disabled = true;};
+    console.log(first, second, third, forth);
 
-        cover1.innerHTML = `<img src="${albums[last]}" alt="${alt[last]}">`;
-        cover2.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+        cover1.innerHTML = `<img src="${albums[first]}" alt="${alt[first]}">`;
+        cover2.innerHTML = `<a href="discdetail.html?id=${links[second]+1}"><img src="${albums[second]}" alt="${alt[first]}"></a>`;
         cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
+        cover4.innerHTML = `<img src="${albums[forth]}" alt="${alt[forth]}">`;
+};
+
+function turnLeft() {
+    console.log("turnRight");
+    cover4.style.display = "flex", toRight.disabled = false;
+    first = first-4;
+    second = second-4;
+    third = third-4;
+    forth = forth-4;
+    
+    if(first == 0) {toLeft.disabled = true;};
+    console.log(first, second, third, forth);
+
+        cover1.innerHTML = `<img src="${albums[first]}" alt="${alt[first]}">`;
+        cover2.innerHTML = `<a href="discdetail.html?id=${links[second]+1}"><img src="${albums[second]}" alt="${alt[first]}"></a>`;
+        cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
+        cover4.innerHTML = `<img src="${albums[forth]}" alt="${alt[forth]}">`;
 };

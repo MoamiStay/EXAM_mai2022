@@ -261,7 +261,34 @@ nav ul {
     object-fit: contain;
 }
 
-#carousel-section, .cover2 a {
+
+
+
+
+
+#carousel-section {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+#carousel-section > div, #carousel-section > section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100%;
+}
+
+#carousel-section section img {
+    max-width: 100%;
+}
+
+
+
+
+
+/* #carousel-section, .cover2 a {
     clear: both;
     display: flex;
     justify-content: center;
@@ -289,7 +316,7 @@ nav ul {
     color: var(--woodz-blue);
     font-size: 2rem;
     position: relative;
-}
+} */
 
 #profile, #discography, #gallerylink {
     max-width: 70%;
