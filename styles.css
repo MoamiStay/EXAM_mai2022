@@ -14,13 +14,17 @@ COLLECT ALL "FLEX BOX - COLUMN"
 BODY MIN/MAX WIDTH */
 
 body {
+    min-height: 100vh;
     margin: 0;
     background-image: linear-gradient(#3F3F3F, #000000);
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
-.load-bg {
+/* .load-bg {
     background-color: var(--background-grey);
-}
+} */
 
 /* #splatter img {
     display: hidden;
@@ -100,7 +104,6 @@ nav ul li a p {
 }
 
 #backButton {
-    cursor: pointer;
     margin-top: 20px;
 }
 
@@ -174,6 +177,10 @@ nav button {
     right: 0px;
 }
 
+#ham_menu, #gallery div, #backButton, #load-more button, #filter > button, #submit, input[type='radio']  {
+    cursor: pointer;
+}
+
 nav ul {
     margin: auto;
 }
@@ -239,7 +246,6 @@ nav ul {
 
 #load-more button, #filter > button, #submit {
     margin: auto;
-    cursor: pointer;
     padding: 10px 45px;
     border: 1px solid aliceblue;
 }
@@ -260,7 +266,6 @@ nav ul {
     max-width: 100%;
     object-fit: contain;
 }
-
 
 
 

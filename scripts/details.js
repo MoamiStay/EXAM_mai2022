@@ -4,7 +4,7 @@ if (!id) {
     window.location = "disc.html";
 }
 
-// console.log(id-1);
+console.log(id-1);
 
 const urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts/${Number(id)-1}`
 const outTitle = document.querySelector(".titleHeader");
@@ -32,7 +32,7 @@ fetch(urlPosts)
 });
 
 function listPosts(posts) {
-    // console.log(posts);
+    console.log(posts);
     pageTitle.innerHTML = `${posts.title.rendered} | WOODZ`
     outTitle.innerHTML = `${posts.title.rendered}`;
         out.innerHTML += `
