@@ -1,4 +1,4 @@
-let counter = 1;
+let counter = 2;
 // let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?page=${counter}`;
 let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?page=${counter}`;
 const out = document.querySelector("#posts");

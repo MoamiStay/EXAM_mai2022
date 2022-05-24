@@ -8,6 +8,7 @@ console.log(id-1);
 
 const urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts/${Number(id)-1}`
 const outTitle = document.querySelector(".titleHeader");
+const errorOut = document.querySelector("main");
 const pageTitle = document.querySelector("title");
 const out = document.querySelector("#post");
 let data = ""
@@ -24,7 +25,8 @@ fetch(urlPosts)
     listPosts(data);
     allPosts = data;
 })
-.catch((error) => (out.innerHTML = "A wild error appeared!" + error))
+.catch((error) => (    errorOut.innerHTML = `<h2>There was a problem with retrieving data.</h2>`,
+errorOut.innerHTML += `<a href="index.html">Go back to homescreen</a>`))
 .finally(() => {
     document.querySelector("main").style.backgroundColor = "transparent";
     document.querySelector("header").style.backgroundColor = "transparent";

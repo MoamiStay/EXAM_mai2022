@@ -8,7 +8,14 @@ hideMenu.onclick = function() {hideMe()};
 
 
 function showMe() {
-    menu.classList.toggle("nav-hidden");}
+    console.log(menu);
+    menu.classList.toggle("nav-hidden");
+    menu.style.animationName = "dropdown";
+}
 
 function hideMe() {
-    menu.classList.toggle("nav-hidden");}
+    menu.style.animationName = "dropup";
+    setTimeout(() => {
+        menu.classList.toggle("nav-hidden");
+    }, 300)
+}

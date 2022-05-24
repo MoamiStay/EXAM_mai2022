@@ -163,13 +163,53 @@ li>a {
     ;
 }
 
+/* @keyframes test {
+    from{ background-color: red};
+    to{ background-color: #151baa};
+   }
+
+   h1{
+       animation-name: test;
+       animation-duration: 4s;
+   } */
+
+
+@keyframes dropdown {
+    100% {
+        bottom: 0%;
+     }
+     0% {
+        bottom: 100%;
+        z-index: 1000000;
+     }
+   }
+
+   @keyframes dropup {
+    100% {
+        bottom: 100%;
+     }
+     0% {
+        bottom: 0%;
+        z-index: 1000000;
+     }
+   }
+
+
 nav {
     align-items: center;
     background-color: var(--background-black);
     height: 100vh;
     width: 100%;
     z-index: 3;
-    position: fixed
+    position: fixed;
+}
+
+nav {
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-delay: 0;
 }
 
 nav button {
@@ -177,7 +217,7 @@ nav button {
     right: 0px;
 }
 
-#ham_menu, #gallery div, #backButton, #load-more button, #filter > button, #submit, input[type='radio']  {
+#ham_menu, #gallery div, #backButton, #load-more button, #filter > button, #submit, input[type='radio'], button {
     cursor: pointer;
 }
 
@@ -185,30 +225,46 @@ nav ul {
     margin: auto;
 }
 
+
 .style-border,
-.style-border a {
+.style-border a, .static-border {
     align-items: flex-end;
     margin: auto;
     max-width: 80%;
 }
 
-.style-border div {
+.style-border div:hover {
+    bottom: 5px;
+    right: 5px;
+    margin-top: 10px;
+}
+.style-border div, .static-border div {
+    position: relative;
+    bottom: 0px;
+    right: 0px;
     display: flex;
     justify-content: flex-end;
     max-width: 100%;
     border: 1px solid white;
+    transition: 0.3s;
 }
+
 
 .style-border h2 {
     flex-direction: row;
     align-items: baseline;
 }
 
-.style-border img {
+.style-border img:hover {
+    left: 20px;
+    top: 20px;
+}
+.style-border img, .static-border img {
     max-width: 100%;
     position: relative;
     left: 10px;
     top: 10px;
+    transition: 0.3s;
 }
 
 .style-border span {
@@ -267,22 +323,32 @@ nav ul {
     object-fit: contain;
 }
 
-
-
-
-
 #carousel-section {
     clear: both;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     max-width: 100%;
+    animation-duration: 3s;
 }
 
-#carousel-section > div, #carousel-section > section {
+#carousel-section i {
+    font-size: 3rem;
+    color: var(--woodz-orange);
+}
+
+#carousel-section > div {
     display: flex;
     flex-direction: row;
     justify-content: center;
     max-width: 100%;
+}
+
+#carousel-section > section {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    max-width: 80%;
+    margin: auto;
 }
 
 #carousel-section section img {
@@ -336,7 +402,7 @@ nav ul {
     max-width: 100%;
 }
 
-#profile-txt .style-border p {
+#profile-txt .static-border p {
     padding-bottom: 0px;
 }
 
@@ -402,11 +468,13 @@ input:hover, input:focus, textarea:hover, textarea:focus {
 }
 
 footer {
+    clear: both;
     text-align: center;
     display: grid;
-    grid-template-columns: auto auto auto;
-    font-size: 0.5rem;
+    grid-template-columns: auto;
+    font-size: 0.7rem;
     margin-top: 50px;
+    padding: 5px;
 }
 
 nav, header>div, #myForm, h2, #filter, #posts, .style-border,
@@ -415,7 +483,7 @@ nav, header>div, #myForm, h2, #filter, #posts, .style-border,
     flex-direction: column;
 }
 
-h1, #carousel-section, .style-border, #posts div, #dropdown, #filter, #gallery img, #submit {
+h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #filter, #gallery img, #submit {
     margin-bottom: 60px;
 }
 
@@ -464,6 +532,18 @@ h1, #carousel-section, .style-border, #posts div, #dropdown, #filter, #gallery i
         padding-bottom: 120px;
     }
 
+    #carousel-section > section {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+        max-width: 90%;
+        margin: auto;
+    }
+
+    #carousel-section section img {
+        max-width: 100%;
+    }
+
     .style-border a {
         max-width: 60%;
     }
@@ -498,6 +578,11 @@ h1, #carousel-section, .style-border, #posts div, #dropdown, #filter, #gallery i
         display: grid;
         grid-template-columns: auto auto;
         gap: 30px;
+    }
+
+    footer {
+        grid-template-columns: auto auto auto;
+        margin-top: 50px;
     }
        
 }
@@ -545,10 +630,6 @@ h1, #carousel-section, .style-border, #posts div, #dropdown, #filter, #gallery i
         display: grid;
         grid-template-columns: auto auto auto;
         gap: 50px;
-    }
-    
-    footer {
-        clear: both;
     }
 
 }
