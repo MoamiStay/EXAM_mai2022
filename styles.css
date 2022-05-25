@@ -43,6 +43,7 @@ body {
 #splatter-general {
     max-width: 100%;
     position: relative;
+    top: -500;
 }
 
 nav ul, nav button {
@@ -167,7 +168,7 @@ header {
     display: none;
 }
 
-#logo {
+#logo, #logo-general {
     margin: auto;
     /* padding: 30px; */
     max-width: 40vw;
@@ -279,11 +280,6 @@ nav ul {
     max-width: 80%;
 }
 
-.style-border div:hover {
-    bottom: 5px;
-    right: 5px;
-    margin-top: 10px;
-}
 .style-border div, .static-border div {
     position: relative;
     bottom: 0px;
@@ -295,7 +291,6 @@ nav ul {
     transition: 0.3s;
 }
 
-
 .style-border h2 {
     flex-direction: row;
     align-items: baseline;
@@ -304,7 +299,29 @@ nav ul {
 .style-border img:hover {
     left: 20px;
     top: 20px;
+    margin-bottom: -10px;
 }
+
+.style-border div:hover {
+    bottom: 5px;
+    right: 5px;
+    margin-top: 10px;
+}
+
+.style-border img:active {
+    left: 0px;
+    top: 0px;
+    margin-bottom: 0px;
+}
+
+.style-border div:active {
+    bottom: 0px;
+    right: 0px;
+    margin-top: -10px;
+}
+
+
+
 .style-border img, .static-border img {
     max-width: 100%;
     position: relative;
@@ -332,10 +349,19 @@ nav ul {
 #posts div {
     max-width: 70%;
     text-align: end;
+    transition: 0.3s;
 }
 
 #posts img {
     max-width: 100%;
+}
+
+#posts div:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#posts div:active {
+    transform: scale(0.95, 0.95);
 }
 
 #filter {
@@ -344,6 +370,16 @@ nav ul {
 
 #load-more {
     display: flex;
+}
+
+#loadButton, #filter > button {
+    transition: 0.2s;
+    z-index: 2;
+}
+
+#loadButton:hover, #filter > button:hover, #loadButton:active, #filter > button:focus {
+    background-color: rgb(226, 226, 226);
+    color: #0f0f0f;
 }
 
 #load-more button, #filter > button, #submit {
@@ -567,7 +603,7 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         background-size: cover;
     }
     
-    #logo {
+    #logo, #logo-general {
         margin: auto;
         /* padding: 30px; */
         max-width: 40vw;
