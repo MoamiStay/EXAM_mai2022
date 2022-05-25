@@ -26,7 +26,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="load-bg">
       <nav class="nav-hidden">
         <button id="backButton" type="button">
           <img src="media/back-icon.png" />
@@ -34,12 +34,11 @@
         </button>
         <ul>
           <li><a href="index.html">HOME</a></li>
-          <li><a href="disc.html">DISCOGRAPHY</a></li>
-          <li>            <a
-            href="profile.html"
-            style="text-decoration: underline 7px var(--woodz-blue)"
-            >PROFILE</a
-          ></li>
+          <li>
+            <a
+              href="disc.html">DISCOGRAPHY</a>
+          </li>
+          <li><a href="profile.html" style="text-decoration: underline 7px var(--woodz-blue)">PROFILE</a></li>
           <li><a href="gallery.html">GALLERY</a></li>
           <li>
             <a href="audition.html"
@@ -48,19 +47,27 @@
             >
           </li>
         </ul>
+        <img
+        id="splatter-menu"
+        class="splatter-menu"
+        src="media/splatterMenu.png"
+      />
       </nav>
-
+      <button id="ham_menu" class="menu" type="button">
+        <img src="media/logo.png" alt="menu" />
+      </button>
+      <!-- 
       <div>
-        <button id="ham_menu" type="button">
-          <img src="media/logo.png" alt="menu" />
-        </button>
 
         <picture>
           <source
             srcset="media/hero-large-1920-220k.jpg"
             media="(min-width:1440px"
           />
-          <source srcset="media/hero-small-1440-32k.jpg" media="(min-width:962px" />
+          <source
+            srcset="media/hero-small-1440-32k.jpg"
+            media="(min-width:962px"
+          />
           <source
             srcset="media/tablet-hero-962-133k.jpg"
             media="(min-width:480px"
@@ -70,7 +77,7 @@
             alt="closeup image of woodz from colorful trauma promotion images"
           />
         </picture>
-      </div>
+      </div> -->
     </header>
 
     <main class="text-p">

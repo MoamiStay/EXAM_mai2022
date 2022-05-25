@@ -180,9 +180,6 @@ setTimeout(() => {
       loadBtn.classList.toggle("hidden");
     }, 1100);
 
-
-
-
 };
 
     

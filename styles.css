@@ -34,6 +34,30 @@ body {
     top: 0px;
 } */
 
+#mob-splatter {
+    max-width: 100%;
+    position: relative;
+    top: 0;
+}
+
+#splatter-general {
+    max-width: 100%;
+    position: relative;
+}
+
+nav ul, nav button {
+    z-index: 5;
+}
+
+#splatter-menu {
+    animation-duration: 0.3s;
+    height: 50%;
+    z-index: 4;
+    position: fixed;
+    bottom: 0vh;
+    right: 0;
+}
+
 h2,
 h3,
 nav li a {
@@ -54,8 +78,8 @@ h1 {
     font-family: 'Anton', sans-serif;
     letter-spacing: 0.05em;
     text-decoration: underline px var(--woodz-orange);
-    font-size: 3em;
-    margin-top: 0;
+    font-size: 2rem;
+    margin-top: 30px;
 }
 
 h1 span {
@@ -124,26 +148,48 @@ a {
     text-decoration: none;
 }
 
-header picture img {
+/* header picture img {
     max-width: 100%;
     position: relative;
     top: -35px;
+} */
+
+header {
+    /* display: flex; */
+    /* align-items: flex-end; */
+    height: 15vh;
+    background-image: url(media/hero-large-2000-MOBILE.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
-header>div {
+#index-logo {
+    display: none;
+}
+
+#logo {
+    margin: auto;
+    /* padding: 30px; */
+    max-width: 40vw;
+    position: relative;
+    top: -1vh;
+}
+
+header div {
     align-items: flex-end;
 }
 
-header>div>button {
-    width: 60px;
+#ham_menu, #index-ham_menu {
+    float: right;
+    /* width: 0px; */
     position: relative;
-    right: 30px;
+    right: 10px;
     top: 25px;
     z-index: 1;
 }
 
-header>div>button>img {
-    height: 25px;
+#ham_menu img, #index-ham_menu img {
+    height: 3vh;
 }
 
 button {
@@ -217,7 +263,7 @@ nav button {
     right: 0px;
 }
 
-#ham_menu, #gallery div, #backButton, #load-more button, #filter > button, #submit, input[type='radio'], button {
+#ham_menu, #index-ham_menu, #gallery div, #backButton, #load-more button, #filter > button, #submit, input[type='radio'], button {
     cursor: pointer;
 }
 
@@ -284,7 +330,7 @@ nav ul {
 }
 
 #posts div {
-    max-width: 90%;
+    max-width: 70%;
     text-align: end;
 }
 
@@ -512,9 +558,36 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
 
 @media screen and (min-width: 480px) {
 
+    header {
+        /* display: flex; */
+        /* align-items: flex-end; */
+        height: 30vh;
+        background-image: url(media/hero-large-2000-192k.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    
+    #logo {
+        margin: auto;
+        /* padding: 30px; */
+        max-width: 40vw;
+        position: relative;
+        top: -4vh;
+    }
+
+    
+    #ham_menu, #index-ham_menu {
+        right: 30px;
+        top: 40px;
+    }
+    
+    #ham_menu img, #index-ham_menu img {
+        height: 4vh;
+    }
+
     #carousel-section {
         margin: auto;
-        max-width: 70%;
+        max-width: 90%;
     }
 
     #posts {
@@ -593,6 +666,50 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
       margin: auto;
       max-width: 1920px;
     }
+
+    #mob-splatter {
+        position: relative;
+        top: 300px;
+    }
+
+    #splatter-menu {
+        height: 70%;
+    }
+
+    #index-main {
+        height: 100vh;
+        background-image: url(media/hero-large-2000-MOBILE.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    #index-ham_menu {
+        right: 80px;
+        top: 130px;
+    }
+    
+    #index-ham_menu img {
+        height: 6vh;
+    }
+
+    #index-h1 {
+        margin-top: -250px;
+        font-size: 4rem;
+    }
+
+    #logo {
+        display: none;
+    }
+    
+    #index-logo {
+        /* margin: auto; */
+        display: flex;
+        max-width: 25vw;
+        position: relative;
+        top: -100vh;
+        margin: 90px;
+    }
+
 
     #main-page-links {
         display: grid;
