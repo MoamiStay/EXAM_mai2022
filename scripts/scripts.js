@@ -2,6 +2,8 @@ let counter = 2;
 // let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?page=${counter}`;
 let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?page=${counter}`;
 const out = document.querySelector("#posts");
+const filter = document.querySelector("#filter");
+const outError = document.querySelector("main");
 const loadBtn = document.querySelector("#load-more");
 const loader = document.querySelector("#loadButton");
 // let albumTitles = [];
@@ -36,7 +38,12 @@ fetch(urlImg)
 //         document.querySelector("header").style.backgroundColor = "transparent";
 //         allPosts = parsedData;}, 1500);
 // })
-.catch((error) => (out.innerHTML = "Second place!" + error))
+.catch((error) => (
+    document.querySelector("#splatter-general").style.display = "none",
+    outError.innerHTML = `
+<div class="error-msg"> 
+<h2>There was a problem with retrieving data.</h2>
+<p><a href="index.html">Go back to homescreen</a></p>`))
 // .finally(() => {document.querySelector("#spinner").remove()})
 
 
@@ -75,7 +82,8 @@ function listCovers(dataImg) {
 
 
 setTimeout(() => {
-    document.querySelector("#spinner").remove()
+    out.innerHTML = "";
+    // document.querySelector("#spinner").remove()
     for(post of covers) {
           out.innerHTML += `
           <div>
@@ -86,10 +94,6 @@ setTimeout(() => {
        }
       loadBtn.classList.toggle("hidden");
     }, 1100);
-
-
-
-
 
 
 // function plus() {
@@ -181,8 +185,18 @@ setTimeout(() => {
     }, 1100);
 
 };
-
     
 // loadBtn.addEventListener("click", plus);
 // loadBtn.addEventListener("click", getTitles2);
 loadBtn.addEventListener("click", loadMore);
+
+
+
+
+
+
+
+
+
+
+

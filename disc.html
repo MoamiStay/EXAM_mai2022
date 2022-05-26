@@ -24,6 +24,7 @@
     <link href="styles.css" rel="stylesheet" />
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/filter.js" defer></script>
   </head>
 
   <body>
@@ -70,10 +71,9 @@
 
       <div id="filter">
         <button>MOST RECENT <i class="fa fa-solid fa-caret-down"></i></button>
-        <div id="dropdown" class="hidden">
-          <button>MOST RECENT</button>
-          <button>OLDEST</button>
-          <button>ALFABETICAL</button>
+        <div id="filter-dropdown" class="hidden">
+          <button id="oldest-option">OLDEST</button>
+          <button id="newest-option">NEWEST</button>
         </div>
       </div>
 
@@ -82,6 +82,9 @@
       </section>
       <div id="load-more">
         <button id="loadButton" type="button">LOAD MORE</button>
+      </div>
+      <div id="load-more2">
+        <button id="loadButton2" class="hidden" type="button">LOAD MORE</button>
       </div>
     </main>
     <footer>

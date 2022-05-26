@@ -25,8 +25,12 @@ fetch(urlPosts)
     listPosts(data);
     allPosts = data;
 })
-.catch((error) => (    errorOut.innerHTML = `<h2>There was a problem with retrieving data.</h2>`,
-errorOut.innerHTML += `<a href="index.html">Go back to homescreen</a>`))
+.catch((error) => (
+    document.querySelector("#splatter-general").style.display = "none",
+    errorOut.innerHTML = `
+<div class="error-msg"> 
+<h2>There was a problem with retrieving data.</h2>
+<p><a href="index.html">Go back to homescreen</a></p>`))
 .finally(() => {
     document.querySelector("main").style.backgroundColor = "transparent";
     document.querySelector("header").style.backgroundColor = "transparent";

@@ -85,14 +85,28 @@ setTimeout(function() {
         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
     }
-}, 700);
+}, 1000);
 
 toRight.addEventListener("click", turnRight);
-// cover3.addEventListener("click", turnLeft);
+// toRight.addEventListener("click", reset);
 toLeft.addEventListener("click", turnLeft);
 // cover1.addEventListener("click", turnRight);
 
+
+// function reset() {
+//     cover1.classList.remove("animate");
+//     cover2.classList.remove("animate");
+//     cover3.classList.remove("animate");
+//     cover4.classList.remove("animate");
+
+// }
+
+
 function turnRight() {
+    // cover1.classList.add("animate");
+    // cover2.classList.add("animate");
+    // cover3.classList.add("animate");
+    // cover4.classList.add("animate");
     console.log("turnRight");
     toLeft.disabled = false;
     first = first+4;
@@ -111,6 +125,7 @@ function turnRight() {
         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
+
 };
 
 function turnLeft() {

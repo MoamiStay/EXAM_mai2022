@@ -17,7 +17,6 @@ body {
     min-height: 100vh;
     margin: 0;
     background-image: linear-gradient(#3F3F3F, #000000);
-
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
@@ -44,6 +43,11 @@ body {
     max-width: 100%;
     position: relative;
     top: -500;
+    z-index: 0;
+}
+
+.error-msg {
+    z-index: 1;
 }
 
 nav ul, nav button {
@@ -135,6 +139,7 @@ nav ul li a p {
 #backButton img {
     max-width: 30%;
 }
+
 #backButton p {
     margin: 0;
     position: relative;
@@ -162,6 +167,7 @@ header {
     background-image: url(media/hero-large-2000-MOBILE.jpg);
     background-position: center;
     background-size: cover;
+    box-shadow: 0px 10px 50px #151515;
 }
 
 #index-logo {
@@ -187,6 +193,12 @@ header div {
     right: 10px;
     top: 25px;
     z-index: 1;
+}
+
+#back-details {
+    font-size: 4rem;
+    z-index: 4;
+    
 }
 
 #ham_menu img, #index-ham_menu img {
@@ -264,6 +276,14 @@ nav button {
     right: 0px;
 }
 
+nav li a {
+    transition: 0.3s;
+}
+
+nav li a:hover, nav li a:active {
+    color: rgb(228, 228, 228);
+}
+
 #ham_menu, #index-ham_menu, #gallery div, #backButton, #load-more button, #filter > button, #submit, input[type='radio'], button {
     cursor: pointer;
 }
@@ -286,7 +306,8 @@ nav ul {
     right: 0px;
     display: flex;
     justify-content: flex-end;
-    max-width: 100%;
+    max-width: 50%;
+    margin: auto;
     border: 1px solid white;
     transition: 0.3s;
 }
@@ -309,8 +330,8 @@ nav ul {
 }
 
 .style-border img:active {
-    left: 0px;
-    top: 0px;
+    left: 5px;
+    top: 5px;
     margin-bottom: 0px;
 }
 
@@ -319,7 +340,6 @@ nav ul {
     right: 0px;
     margin-top: -10px;
 }
-
 
 
 .style-border img, .static-border img {
@@ -368,21 +388,21 @@ nav ul {
     align-items: center;
 }
 
-#load-more {
+#load-more, #load-more2 {
     display: flex;
 }
 
-#loadButton, #filter > button {
+#loadButton, #loadButton2, #filter > button {
     transition: 0.2s;
     z-index: 2;
 }
 
-#loadButton:hover, #filter > button:hover, #loadButton:active, #filter > button:focus {
+#loadButton:hover, #loadButton2:hover, #filter > button:hover, #loadButton:active, #filter > button:focus {
     background-color: rgb(226, 226, 226);
     color: #0f0f0f;
 }
 
-#load-more button, #filter > button, #submit {
+#load-more button, #filter > button, #submit, #load-more2 button {
     margin: auto;
     padding: 10px 45px;
     border: 1px solid aliceblue;
@@ -437,6 +457,19 @@ nav ul {
     max-width: 100%;
 }
 
+@keyframes caromove {
+    0% {right: 0%;}
+    50% {right: 500%;}
+    51% {left: 500%}
+    100% {left: 0%}
+}
+
+.animate {
+    position: relative;
+    animation-duration: 1s;
+    animation-name: caromove;
+}
+
 
 
 
@@ -486,6 +519,7 @@ nav ul {
 
 #profile-txt .static-border p {
     padding-bottom: 0px;
+    margin-top: 50px;
 }
 
 #gallery img {
@@ -590,6 +624,19 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     background-color: rgb(0, 0, 0, 0.8);
 }
 
+.error-msg, .error-msg a, .error-msg h2 {
+    color: var(--woodz-orange);
+    text-align: center;
+    align-items: center;
+    font-family: "montserrat";
+    margin: auto;
+}
+
+.error-msg p {
+    padding: 50px;
+    text-decoration: underline;
+    margin-bottom: 100px;
+}
 
 
 @media screen and (min-width: 480px) {
@@ -700,7 +747,7 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
 @media screen and (min-width: 1280px) {
     body {
       margin: auto;
-      max-width: 1920px;
+      /* max-width: 1920px; */
     }
 
     #mob-splatter {
@@ -717,6 +764,7 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         background-image: url(media/hero-large-2000-MOBILE.jpg);
         background-position: center;
         background-size: cover;
+        box-shadow: 0px 70px 120px #000000;
     }
 
     #index-ham_menu {
@@ -727,6 +775,15 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     #index-ham_menu img {
         height: 6vh;
     }
+
+    /* #backButton {
+        margin-top: 5vh;
+        margin-right: 5vh;
+    }
+    
+    #backButton img {
+        max-width: 50%;
+    } */
 
     #index-h1 {
         margin-top: -250px;
@@ -746,10 +803,19 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         margin: 90px;
     }
 
+    nav ul {
+        display: flex;
+    }
+
+    nav ul li:last-child {
+        position: relative;
+        bottom: 18px;
+    }
+
 
     #main-page-links {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     #posts {
@@ -778,6 +844,19 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         margin: 0;
     }
 
+    .static-border {
+        max-width: 60%;
+        justify-content: space-between;
+    }
+
+    .first-img div {
+        margin-left: 10vw;
+    }
+
+    .second-img div {
+        margin-right: 10vw;
+    }
+
     #gallery {
         padding: 100px;
         display: grid;
@@ -785,4 +864,10 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         gap: 50px;
     }
 
+}
+
+@media screen and (min-width: 1980px) {
+    #mob-splatter, #splatter-general {
+        display: none;
+    }
 }
