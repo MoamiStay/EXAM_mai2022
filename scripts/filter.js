@@ -12,11 +12,11 @@ oldest.addEventListener("click", filteringOld);
 newest.addEventListener("click", filteringNew);
 
 function filteringOld() {
+counter = 3;
 document.querySelector("#filter > button").innerHTML = `OLDEST <i class="fa fa-solid fa-caret-down"></i>`;
 document.querySelector("#load-more").style.display = "none";
 document.querySelector("#loadButton2").classList.toggle("hidden");
 
-counter = 3;
 let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?page=${counter}`;
 
 let allCovers;
@@ -34,8 +34,7 @@ fetch(urlImg)
 setTimeout(function() {
     listCovers(dataImg);
     }, 1000)
-    
-    
+     
     
     function listCovers(dataImg) {
         covers = [];
@@ -65,8 +64,9 @@ setTimeout(() => {
 
 // LOAD MORE FILTER
 function loadMore2() {
-if(!counter === 1) {counter = counter -1}
-
+counter = counter-1;
+if(counter === 2) {document.querySelector("#loadButton2").style.display = "none";}
+console.log(counter);
 fetch(urlImg)
 .then((response) => response.json())
 .then((parsedData) => {
@@ -105,6 +105,8 @@ setTimeout(() => {
        }
       loadBtn.classList.toggle("hidden");
     }, 1100);
+
+    return counter;
 
 }
 

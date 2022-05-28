@@ -12,6 +12,7 @@ document.querySelector("main").style.backgroundColor = "transparent";
 document.querySelector("header").style.backgroundColor = "transparent";
 })
 
+// show gallery images
 function displayImg(data) {
     // console.log(data);
     for(img of data) {
@@ -26,6 +27,7 @@ function displayImg(data) {
     }
 
     const photos = document.querySelectorAll(".gallery-img");
+
 
     photos.forEach(photos => {
         photos.addEventListener("click", e => {
@@ -44,5 +46,6 @@ function displayImg(data) {
         if (e.target !== e.currentTarget) return;
         viewImg.classList.remove("active");
         viewImg.style.display = "none";
+        viewImg.innerHTML = `<img src="media/back-icon.png" />`;
     });
 };

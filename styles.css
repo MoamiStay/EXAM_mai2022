@@ -78,12 +78,12 @@ h2 {
 
 h1 {
     text-align: center;
-    color: rgb(19, 19, 19);
-    -webkit-text-stroke: 1px rgb(177, 177, 177);
+    color: rgb(177, 177, 177);
+    /* -webkit-text-stroke: 1px rgb(177, 177, 177); */
     font-family: 'Anton', sans-serif;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.10em;
     text-decoration: underline px var(--woodz-orange);
-    font-size: 2rem;
+    font-size: 2.3rem;
     margin-top: 30px;
 }
 
@@ -114,6 +114,7 @@ p, li, label, h4, input, textarea, button {
 
 #spinner {
     max-width: 60px !important;
+    margin: auto;
 }
 
 .hidden,
@@ -196,8 +197,8 @@ header div {
 }
 
 #back-details {
-    font-size: 4rem;
-    z-index: 4;
+    position: relative;
+    z-index: 1;
     
 }
 
@@ -312,33 +313,31 @@ nav ul {
     transition: 0.3s;
 }
 
-.style-border h2 {
-    flex-direction: row;
-    align-items: baseline;
+.style-border img {
+    transition: 0.3s;
 }
+
 
 .style-border img:hover {
     left: 20px;
     top: 20px;
-    margin-bottom: -10px;
-}
+} 
 
 .style-border div:hover {
     bottom: 5px;
     right: 5px;
-    margin-top: 10px;
 }
+
+
 
 .style-border img:active {
     left: 5px;
     top: 5px;
-    margin-bottom: 0px;
 }
 
 .style-border div:active {
     bottom: 0px;
     right: 0px;
-    margin-top: -10px;
 }
 
 
@@ -355,8 +354,10 @@ nav ul {
 }
 
 .style-border h2 {
+    flex-direction: row;
+    align-items: baseline;
     border-bottom: 2px solid var(--woodz-blue);
-    margin-bottom: 7px;
+    margin-bottom: 15px;
     padding-left: 20px;
 }
 
@@ -386,6 +387,21 @@ nav ul {
 
 #filter {
     align-items: center;
+}
+
+#filter-dropdown {
+text-align: center;
+position: relative;
+z-index: 1;
+}
+
+#filter-dropdown li {
+    padding: 5px;
+    border: 1px solid white;
+}
+
+#filter-dropdown li:hover {
+    background-color: rgb(89, 89, 89);
 }
 
 #load-more, #load-more2 {
@@ -671,6 +687,7 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     #carousel-section {
         margin: auto;
         max-width: 90%;
+        padding-bottom: 120px;
     }
 
     #posts {
@@ -684,15 +701,15 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         font-size: 150%;
     }
 
-    #carousel-section {
-        padding-bottom: 120px;
+    #carousel-section i {
+        font-size: 5rem;
     }
 
     #carousel-section > section {
         display: grid;
         grid-template-columns: auto auto auto auto;
         gap: 10px;
-        max-width: 90%;
+        max-width: 80%;
         margin: auto;
     }
 
@@ -819,6 +836,8 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     }
 
     #posts {
+        margin: auto;
+        max-width: 75%;
         display: grid;
         grid-template-columns: 33.3% 33.3% 33.3%;
     }
