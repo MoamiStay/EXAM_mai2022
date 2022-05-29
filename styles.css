@@ -7,8 +7,6 @@
     --woodz-orange: #f76902;
 }
 
-/* * {border: 1px solid white;} */
-
 /* COLLECT ALL "CLEAR"
 COLLECT ALL "FLEX BOX - COLUMN"
 BODY MIN/MAX WIDTH */
@@ -21,18 +19,6 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-/* .load-bg {
-    background-color: var(--background-grey);
-} */
-
-/* #splatter img {
-    display: hidden;
-    z-index: 5;
-    max-width: 100%;
-    position: fixed;
-    top: 0px;
-} */
-
 #mob-splatter {
     max-width: 100%;
     position: relative;
@@ -42,7 +28,6 @@ body {
 #splatter-general {
     max-width: 100%;
     position: relative;
-    top: -500;
     z-index: 0;
 }
 
@@ -79,10 +64,8 @@ h2 {
 h1 {
     text-align: center;
     color: rgb(177, 177, 177);
-    /* -webkit-text-stroke: 1px rgb(177, 177, 177); */
     font-family: 'Anton', sans-serif;
     letter-spacing: 0.10em;
-    text-decoration: underline px var(--woodz-orange);
     font-size: 2.3rem;
     margin-top: 30px;
 }
@@ -99,7 +82,6 @@ h3 {
     margin-top: 0;
     padding-left: 50px;
     border-bottom: 2px solid var(--woodz-blue);
-    /* font-size: 1rem; */
 }
 
 .text-p p {
@@ -107,7 +89,7 @@ h3 {
     max-width: 70%;
 }
 
-p, li, label, h4, input, textarea, button {
+p, li, label, h4, input, textarea, button, #back-details {
     color: aliceblue;
     font-family: "Montserrat", "Arial", "Verdana", "Georgia";
 }
@@ -155,15 +137,7 @@ a {
     text-decoration: none;
 }
 
-/* header picture img {
-    max-width: 100%;
-    position: relative;
-    top: -35px;
-} */
-
 header {
-    /* display: flex; */
-    /* align-items: flex-end; */
     height: 15vh;
     background-image: url(media/hero-large-2000-MOBILE.jpg);
     background-position: center;
@@ -177,7 +151,6 @@ header {
 
 #logo, #logo-general {
     margin: auto;
-    /* padding: 30px; */
     max-width: 40vw;
     position: relative;
     top: -1vh;
@@ -189,7 +162,6 @@ header div {
 
 #ham_menu, #index-ham_menu {
     float: right;
-    /* width: 0px; */
     position: relative;
     right: 10px;
     top: 25px;
@@ -199,14 +171,13 @@ header div {
 #back-details {
     position: relative;
     z-index: 1;
-    
 }
 
 #ham_menu img, #index-ham_menu img {
     height: 3vh;
 }
 
-button {
+button, #back-details {
     background-color: transparent;
     color: white;
     border-color: transparent;
@@ -222,17 +193,6 @@ li>a {
     color: white;
     ;
 }
-
-/* @keyframes test {
-    from{ background-color: red};
-    to{ background-color: #151baa};
-   }
-
-   h1{
-       animation-name: test;
-       animation-duration: 4s;
-   } */
-
 
 @keyframes dropdown {
     100% {
@@ -269,7 +229,6 @@ nav {
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-direction: normal;
-    animation-delay: 0;
 }
 
 nav button {
@@ -292,7 +251,6 @@ nav li a:hover, nav li a:active {
 nav ul {
     margin: auto;
 }
-
 
 .style-border,
 .style-border a, .static-border {
@@ -317,7 +275,6 @@ nav ul {
     transition: 0.3s;
 }
 
-
 .style-border img:hover {
     left: 20px;
     top: 20px;
@@ -328,8 +285,6 @@ nav ul {
     right: 5px;
 }
 
-
-
 .style-border img:active {
     left: 5px;
     top: 5px;
@@ -339,7 +294,6 @@ nav ul {
     bottom: 0px;
     right: 0px;
 }
-
 
 .style-border img, .static-border img {
     max-width: 100%;
@@ -441,6 +395,7 @@ z-index: 1;
     object-fit: contain;
 }
 
+/* CAROUSEL DESKTOP */
 #carousel-section {
     clear: both;
     display: flex;
@@ -471,25 +426,11 @@ z-index: 1;
 
 #carousel-section section img {
     max-width: 100%;
-}
-
-@keyframes caromove {
-    0% {right: 0%;}
-    50% {right: 500%;}
-    51% {left: 500%}
-    100% {left: 0%}
-}
-
-.animate {
-    position: relative;
-    animation-duration: 1s;
-    animation-name: caromove;
-}
+ }
+ /* CAROUSEL DESKTOP */
 
 
-
-
-
+/* MOBILE CAROUSEL */
 /* #carousel-section, .cover2 a {
     clear: both;
     display: flex;
@@ -519,9 +460,24 @@ z-index: 1;
     font-size: 2rem;
     position: relative;
 } */
+/* MOBILE CAROUSEL */
+
+
+@keyframes caromove {
+    0% {right: 0%;}
+    50% {right: 500%;}
+    51% {left: 500%}
+    100% {left: 0%}
+}
+
+.animate {
+    position: relative;
+    animation-duration: 1s;
+    animation-name: caromove;
+}
 
 #profile, #discography, #gallerylink {
-    max-width: 70%;
+    max-width: 100%;
 }
 
 #profile-txt {
@@ -658,8 +614,6 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
 @media screen and (min-width: 480px) {
 
     header {
-        /* display: flex; */
-        /* align-items: flex-end; */
         height: 30vh;
         background-image: url(media/hero-large-2000-192k.jpg);
         background-position: center;
@@ -668,13 +622,11 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     
     #logo, #logo-general {
         margin: auto;
-        /* padding: 30px; */
         max-width: 40vw;
         position: relative;
         top: -4vh;
     }
 
-    
     #ham_menu, #index-ham_menu {
         right: 30px;
         top: 40px;
@@ -684,21 +636,20 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         height: 4vh;
     }
 
-    #carousel-section {
-        margin: auto;
-        max-width: 90%;
-        padding-bottom: 120px;
-    }
-
     #posts {
         display: grid;
         grid-template-columns: 50% 50%;
-
     }
 
     h3 {
         padding-left: 0;
         font-size: 150%;
+    }
+
+    #carousel-section {
+        margin: auto;
+        max-width: 90%;
+        padding-bottom: 120px;
     }
 
     #carousel-section i {
@@ -793,15 +744,6 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         height: 6vh;
     }
 
-    /* #backButton {
-        margin-top: 5vh;
-        margin-right: 5vh;
-    }
-    
-    #backButton img {
-        max-width: 50%;
-    } */
-
     #index-h1 {
         margin-top: -250px;
         font-size: 4rem;
@@ -812,7 +754,6 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     }
     
     #index-logo {
-        /* margin: auto; */
         display: flex;
         max-width: 25vw;
         position: relative;
@@ -828,7 +769,6 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         position: relative;
         bottom: 18px;
     }
-
 
     #main-page-links {
         display: grid;
@@ -882,7 +822,6 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
         grid-template-columns: auto auto auto;
         gap: 50px;
     }
-
 }
 
 @media screen and (min-width: 1980px) {

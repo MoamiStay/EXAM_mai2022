@@ -1,10 +1,16 @@
-// let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=30";
-// let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=30";
+// EARLY SCRIPTS
+
+{
+// let counter = 10;
+// current = 0;
+// let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?per_page=${counter}`;
+// let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?per_page=${counter}`;
 // const out = document.querySelector("#posts");
 // const loadBtn = document.querySelector("#load-more");
-// let albumTitles = [""];
+// const loader = document.querySelector("#loadButton");
+// let albumTitles = [];
+// let covers = [];
 // let data = "";
-// let counter = 0;
 
 // //To get Title
 // let allPosts;
@@ -22,7 +28,6 @@
 // .catch((error) => (out.innerHTML = "First place!" + error))
 
 
-
 // // Collect all titles in an array
 // function getTitles(titles) {
 //     // console.log(titles);
@@ -33,6 +38,9 @@
 //         albumTitles.push(title.title);
 //     }}     return albumTitles;
 // };
+
+
+
 
 
 // //To get cover image
@@ -49,197 +57,76 @@
 // .catch((error) => (out.innerHTML = "Second place!" + error))
 // .finally(() => {document.querySelector("#spinner").remove()})
 
-// let covers = [];
+
 // function listCovers(posts) {
 //     // console.log(posts);
 //     out.innerHTML = "";
-
 //     for(post of posts) {
 //         // console.log(post.caption.rendered.indexOf("gallery"));
 //         if (post.caption.rendered.indexOf("gallery") === -1) { 
 //         covers.push(post);}
 //     }
 //         return covers;
-//     }
+//     };
+
+
+
 
 // setTimeout(() => {
 //     for(post of covers) {
-//         counter ++;
-//         if(counter <= 10) {
+//         if(current <= 9) {
 //           out.innerHTML += `
 //           <div>
-//            <a href="discdetail.html?id=${post.id}">
-//                <img src="${post.guid.rendered}" alt="${post.alt_text}">
-//                <h3>${albumTitles[counter].rendered}</h3>
+//            <a href="discdetail.html?id=${covers[current].id}">
+//                <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
+//                <h3>${albumTitles[current].rendered}</h3>
 //            </a>
 //           </div>`
+//           current ++;
+//           console.log(current);
 //       } }
 //       loadBtn.classList.toggle("hidden");
+//       return current;
 //     }, 2000);
 
 
+
+// loadBtn.addEventListener("click", plus);
+// function plus() {
+//     return counter = counter + 30;
+// }
 // loadBtn.addEventListener("click", loadMore);
+
+
+
 
 // function loadMore() {
 //     for(post of covers) {
-//         console.log(post);
-//         if(counter <= counter + 10) {
+//         current ++;
+//         if(current >= covers.length) {break}
+//         else if(current <= counter) {
 //           out.innerHTML += `
 //           <div>
-//            <a href="discdetail.html?id=${post.id}">
-//                <img src="${post.guid.rendered}" alt="${post.alt_text}">
-//                <h3>${albumTitles[counter].rendered}</h3>
+//            <a href="discdetail.html?id=${covers[current].id}">
+//                <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
+//                <h3>${albumTitles[current].rendered}</h3>
 //            </a>
 //           </div>`
 //       }
+//     //   loader.classList.add("hidden");
 //     }};
 
 
 
-// loadBtn.addEventListener("click", loadMore);
+// // loadBtn.addEventListener("click", listCovers);
+// // loadBtn.addEventListener("click", getTitles);
 
-// function loadMore() {
-//     // console.log("katten til per");
-//     let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=20";
-//     let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
-//  }
-
-
-let counter = 10;
-current = 0;
-let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?per_page=${counter}`;
-let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?per_page=${counter}`;
-const out = document.querySelector("#posts");
-const loadBtn = document.querySelector("#load-more");
-const loader = document.querySelector("#loadButton");
-let albumTitles = [];
-let covers = [];
-let data = "";
-
-//To get Title
-let allPosts;
-fetch(urlPosts)
-.then((response) => response.json())
-.then((parsedData) => {
-    allPosts = parsedData;
-    data = allPosts;
-    return data;
-})
-.then((data) => {
-    getTitles(data);
-    allPosts = data;
-})
-.catch((error) => (out.innerHTML = "First place!" + error))
-
-
-// Collect all titles in an array
-function getTitles(titles) {
-    // console.log(titles);
-    for(title of titles) {
-        // console.log(title.categories[0]);
-        // console.log(title);
-        if(title.categories[0] === 3) {
-        albumTitles.push(title.title);
-    }}     return albumTitles;
-};
-
-
-
-
-
-//To get cover image
-let allCovers;
-fetch(urlImg)
-.then((response) => response.json())
-.then((parsedData) => {
-    setTimeout(() => {
-        listCovers(parsedData);
-        document.querySelector("main").style.backgroundColor = "transparent";
-        document.querySelector("header").style.backgroundColor = "transparent";
-        allPosts = parsedData;}, 1500);
-})
-.catch((error) => (out.innerHTML = "Second place!" + error))
-.finally(() => {document.querySelector("#spinner").remove()})
-
-
-function listCovers(posts) {
-    // console.log(posts);
-    out.innerHTML = "";
-    for(post of posts) {
-        // console.log(post.caption.rendered.indexOf("gallery"));
-        if (post.caption.rendered.indexOf("gallery") === -1) { 
-        covers.push(post);}
-    }
-        return covers;
-    };
-
-
-
-
-setTimeout(() => {
-    for(post of covers) {
-        if(current <= 9) {
-          out.innerHTML += `
-          <div>
-           <a href="discdetail.html?id=${covers[current].id}">
-               <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
-               <h3>${albumTitles[current].rendered}</h3>
-           </a>
-          </div>`
-          current ++;
-          console.log(current);
-      } }
-      loadBtn.classList.toggle("hidden");
-      return current;
-    }, 2000);
-
-
-
-loadBtn.addEventListener("click", plus);
-function plus() {
-    return counter = counter + 30;
 }
-loadBtn.addEventListener("click", loadMore);
-
-
-
-
-function loadMore() {
-    for(post of covers) {
-        current ++;
-        if(current >= covers.length) {break}
-        else if(current <= counter) {
-          out.innerHTML += `
-          <div>
-           <a href="discdetail.html?id=${covers[current].id}">
-               <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
-               <h3>${albumTitles[current].rendered}</h3>
-           </a>
-          </div>`
-      }
-    //   loader.classList.add("hidden");
-    }};
-
-
-
-// loadBtn.addEventListener("click", listCovers);
-// loadBtn.addEventListener("click", getTitles);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 // MOBILE CAROUSEL
+{
 
 // const carouselSection = document.querySelector("#carousel-section");
 // const cover1 = document.querySelector(".cover1");
@@ -361,21 +248,13 @@ function loadMore() {
 //         cover3.innerHTML = `<img src="${albums[third]}" alt="${alt[third]}">`;
 // };
 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
 // CAROUSEL DESKTOP
+{
+
 // const carouselSection = document.querySelector("#carousel-section");
 // const cover1 = document.querySelector(".cover1");
 // const cover2 = document.querySelector(".cover2");
@@ -384,7 +263,7 @@ function loadMore() {
 // const toLeft = document.querySelector(".turn-left");
 // const toRight = document.querySelector(".turn-right");
 // let urlImg = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=50";
-// let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=50";
+// // let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/posts?per_page=50";
 
 // let allImg;
 // fetch(urlImg)
@@ -396,45 +275,48 @@ function loadMore() {
 // document.querySelector("header").style.backgroundColor = "transparent";
 // })
 
-// let allPosts;
-// fetch(urlPosts)
-// .then((response) => response.json())
-// .then((parsedData) => {linkDetails(parsedData); allPosts = parsedData})
-// .catch((error) => (carouselSection.innerHTML = "First place!" + error))
+// // let allPosts;
+// // fetch(urlPosts)
+// // .then((response) => response.json())
+// // .then((parsedData) => {linkDetails(parsedData); allPosts = parsedData})
+// // .catch((error) => (carouselSection.innerHTML = "First place!" + error))
 
 
-// // PUT COVERS, ALT-TEXT AND DETAILS LINK IN ARRAY ////
+// //// PUT COVERS, ALT-TEXT AND DETAILS LINK IN ARRAY ////
 // let albums = []; 
 // let alt = [];
+// let links = [];
 // function postsArray(allImg) {
-//     console.log(allImg);
+//     // console.log(allImg);
 //     for(item of allImg) {
-//         console.log(item.caption.rendered.indexOf("gallery")); // "gallery" is only included in img that are in gallery.
+//         // console.log(item.caption.rendered.indexOf("gallery")); // "gallery" is only included in img that are in gallery.
 //         if(item.caption.rendered.indexOf("gallery") === -1) { // only get images that are not part of gallery. (just albums)
 //         let link = (item.guid.rendered); 
 //         let altText = (item.alt_text);
+//         let linkPost = (item.id)
 //         albums.push(link);
 //         alt.push(altText);
+//         links.push(linkPost);
 //         } else continue;
 //     }
-//     return albums, alt;
+//     return albums, alt, links;
 // };
 
-// let links = [];
-//  function linkDetails(data) {
-//     console.log(data);
-//     for(post of data) {
-//         get links to individual pages
-//         console.log(post.categories[0] === 3);
-//         if(post.categories[0] === 3) { //only get posts under category: albums (category 3)
-//         let link = (post.id);
-//         links.push(link); 
-//     } else continue;
-//     }
-//     return links;
-// };
+// // let links = [];
+// //  function linkDetails(data) {
+// //     console.log(data);
+// //     for(post of data) {
+// //         // get links to individual pages
+// //         // console.log(post.categories[0] === 3);
+// //         if(post.categories[0] === 3) { //only get posts under category: albums (category 3)
+// //         let link = (post.id);
+// //         links.push(link); 
+// //     } else continue;
+// //     }
+// //     return links;
+// // };
 
-// // GET CORRESPONDING NUMBER FOR EACH POST ////
+// //// GET CORRESPONDING NUMBER FOR EACH POST ////
 // let first = 0;
 // let second = 1;
 // let third = 2;
@@ -449,25 +331,39 @@ function loadMore() {
 
 
 // setTimeout(function() {
-//     console.log(alt);
-//     console.log(albums);
-//     console.log(last);
+//     // console.log(alt);
+//     // console.log(albums);
+//     // console.log(last);
 //     toLeft.disabled = true;
 //     for(let i = 0; i < Object.keys(albums).length; i++) {
-//         console.log(links[first]+1);
-//         cover1.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
-//         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]+1}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
-//         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]+1}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
-//         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]+1}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
+//         // console.log(links[first]+1);
+//         cover1.innerHTML = `<a href="discdetail.html?id=${links[first]}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+//         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
+//         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
+//         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
 //     }
-// }, 700);
+// }, 1000);
 
 // toRight.addEventListener("click", turnRight);
-// cover3.addEventListener("click", turnLeft);
+// // toRight.addEventListener("click", reset);
 // toLeft.addEventListener("click", turnLeft);
-// cover1.addEventListener("click", turnRight);
+// // cover1.addEventListener("click", turnRight);
+
+
+// // function reset() {
+// //     cover1.classList.remove("animate");
+// //     cover2.classList.remove("animate");
+// //     cover3.classList.remove("animate");
+// //     cover4.classList.remove("animate");
+
+// // }
+
 
 // function turnRight() {
+//     // cover1.classList.add("animate");
+//     // cover2.classList.add("animate");
+//     // cover3.classList.add("animate");
+//     // cover4.classList.add("animate");
 //     console.log("turnRight");
 //     toLeft.disabled = false;
 //     first = first+4;
@@ -479,13 +375,14 @@ function loadMore() {
 //     if(second > albums.length) {second = albums.length+1, cover2.style.display = "none"};
 //     if(third > albums.length) {third = albums.length+2, cover3.style.display = "none"};
 //     if(forth === albums.length-1) {forth = albums.length-1, toRight.disabled = true}
-//     else if(forth >= albums.length) {forth = albums.length+3, cover4.style.display = "none", toRight.disabled = true}
+//     else if(forth >= albums.length) {forth = albums.length, cover4.style.display = "none", toRight.disabled = true}
 //     console.log(first, second, third, forth);
 
-//         cover1.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
-//         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]+1}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
-//         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]+1}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
-//         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]+1}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
+//         cover1.innerHTML = `<a href="discdetail.html?id=${links[first]}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+//         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
+//         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
+//         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
+
 // };
 
 // function turnLeft() {
@@ -502,157 +399,528 @@ function loadMore() {
 //     if(first == 0) {toLeft.disabled = true;};
 //     console.log(first, second, third, forth);
 
-//         cover1.innerHTML = `<a href="discdetail.html?id=${links[first]+1}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
-//         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]+1}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
-//         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]+1}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
-//         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]+1}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
+//         cover1.innerHTML = `<a href="discdetail.html?id=${links[first]}"><img src="${albums[first]}" alt="${alt[first]}"></a>`;
+//         cover2.innerHTML = `<a href="discdetail.html?id=${links[second]}"><img src="${albums[second]}" alt="${alt[second]}"></a>`;
+//         cover3.innerHTML = `<a href="discdetail.html?id=${links[third]}"><img src="${albums[third]}" alt="${alt[third]}"></a>`;
+//         cover4.innerHTML = `<a href="discdetail.html?id=${links[forth]}"><img src="${albums[forth]}" alt="${alt[forth]}"></a>`;
 // };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
 // SCRIPTS
+{
 
-let counter = 50;
-current = 0;
-let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?per_page=${counter}`;
-let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?per_page=${counter}`;
-const out = document.querySelector("#posts");
-const loadBtn = document.querySelector("#load-more");
-const loader = document.querySelector("#loadButton");
-let albumTitles = [];
-let covers = [];
-let data = "";
-let dataImg = "";
+// let counter = 50;
+// current = 0;
+// let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?per_page=${counter}`;
+// let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?per_page=${counter}`;
+// const out = document.querySelector("#posts");
+// const loadBtn = document.querySelector("#load-more");
+// const loader = document.querySelector("#loadButton");
+// let albumTitles = [];
+// let covers = [];
+// let data = "";
+// let dataImg = "";
 
-//To get Title
-let allPosts;
-fetch(urlPosts)
-.then((response) => response.json())
-.then((parsedData) => {
-    allPosts = parsedData;
-    data = allPosts;
-    return data;
-})
-.catch((error) => (out.innerHTML = "First place!" + error))
-
-
-//To get cover image
-let allCovers;
-fetch(urlImg)
-.then((response) => response.json())
-.then((parsedData) => {
-    allCovers = parsedData;
-    dataImg = allCovers;
-    return dataImg;
-})
-//     setTimeout(() => {
-//         listCovers(parsedData);
-//         document.querySelector("main").style.backgroundColor = "transparent";
-//         document.querySelector("header").style.backgroundColor = "transparent";
-//         allPosts = parsedData;}, 1500);
+// //To get Title
+// let allPosts;
+// fetch(urlPosts)
+// .then((response) => response.json())
+// .then((parsedData) => {
+//     allPosts = parsedData;
+//     data = allPosts;
+//     return data;
 // })
-.catch((error) => (out.innerHTML = "Second place!" + error))
-.finally(() => {document.querySelector("#spinner").remove()})
+// .catch((error) => (out.innerHTML = "First place!" + error))
 
 
-//////////////////////////////////
+// //To get cover image
+// let allCovers;
+// fetch(urlImg)
+// .then((response) => response.json())
+// .then((parsedData) => {
+//     allCovers = parsedData;
+//     dataImg = allCovers;
+//     return dataImg;
+// })
+// //     setTimeout(() => {
+// //         listCovers(parsedData);
+// //         document.querySelector("main").style.backgroundColor = "transparent";
+// //         document.querySelector("header").style.backgroundColor = "transparent";
+// //         allPosts = parsedData;}, 1500);
+// // })
+// .catch((error) => (out.innerHTML = "Second place!" + error))
+// .finally(() => {document.querySelector("#spinner").remove()})
 
 
-setTimeout(function() {
-getTitles(data);
-listCovers(dataImg);
-}, 2000)
+// //////////////////////////////////
 
 
-
-function listCovers(dataImg) {
-    // out.innerHTML = "";
-    covers = [];
-    for(post of dataImg) {
-        // console.log(post.caption.rendered.indexOf("gallery"));
-        if (post.caption.rendered.indexOf("gallery") === -1) { 
-        covers.push(post);}
-    }
-        return covers;
-    };
-
-
-// Collect all titles in an array
-function getTitles(data) {
-    albumTitles = [];
-    for(title of data) {
-        // console.log(title.categories[0]);
-        // console.log(title);
-        if(title.categories[0] === 3) {
-        albumTitles.push(title.title);
-    }}     return albumTitles;
-};
+// setTimeout(function() {
+// getTitles(data);
+// listCovers(dataImg);
+// }, 2000)
 
 
 
-setTimeout(() => {
-    for(post of covers) {
-        if(current <= 9) {
-          out.innerHTML += `
-          <div>
-           <a href="discdetail.html?id=${covers[current].id}">
-               <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
-               <h3>${albumTitles[current].rendered}</h3>
-           </a>
-          </div>`
-          current ++;
-        //   console.log(current);
-      } }
-      loadBtn.classList.toggle("hidden");
-      return current;
-    }, 2100);
+// function listCovers(dataImg) {
+//     // out.innerHTML = "";
+//     covers = [];
+//     for(post of dataImg) {
+//         // console.log(post.caption.rendered.indexOf("gallery"));
+//         if (post.caption.rendered.indexOf("gallery") === -1) { 
+//         covers.push(post);}
+//     }
+//         return covers;
+//     };
+
+
+// // Collect all titles in an array
+// function getTitles(data) {
+//     albumTitles = [];
+//     for(title of data) {
+//         // console.log(title.categories[0]);
+//         // console.log(title);
+//         if(title.categories[0] === 3) {
+//         albumTitles.push(title.title);
+//     }}     return albumTitles;
+// };
 
 
 
-function plus() {
-    return counter = counter + 30;
-}
+// setTimeout(() => {
+//     for(post of covers) {
+//         if(current <= 9) {
+//           out.innerHTML += `
+//           <div>
+//            <a href="discdetail.html?id=${covers[current].id}">
+//                <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
+//                <h3>${albumTitles[current].rendered}</h3>
+//            </a>
+//           </div>`
+//           current ++;
+//         //   console.log(current);
+//       } }
+//       loadBtn.classList.toggle("hidden");
+//       return current;
+//     }, 2100);
 
-function getTitles2() {
-    listCovers(dataImg);
-    getTitles(data);
-}
 
-function loadMore() {
-    for(post of covers) {
-        // console.log(covers);
-        // console.log(current);
-        if(current >= covers.length) {break}
-        if(current <= counter) {
-          out.innerHTML += `
-          <div>
-           <a href="discdetail.html?id=${covers[current].id}">
-               <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
-               <h3>${albumTitles[current].rendered}</h3>
-           </a>
-          </div>`
-          current ++;
-      }
-      loader.classList.add("hidden");
-    }};
+
+// function plus() {
+//     return counter = counter + 30;
+// }
+
+// function getTitles2() {
+//     listCovers(dataImg);
+//     getTitles(data);
+// }
+
+// function loadMore() {
+//     for(post of covers) {
+//         // console.log(covers);
+//         // console.log(current);
+//         if(current >= covers.length) {break}
+//         if(current <= counter) {
+//           out.innerHTML += `
+//           <div>
+//            <a href="discdetail.html?id=${covers[current].id}">
+//                <img src="${covers[current].guid.rendered}" alt="${covers[current].alt_text}">
+//                <h3>${albumTitles[current].rendered}</h3>
+//            </a>
+//           </div>`
+//           current ++;
+//       }
+//       loader.classList.add("hidden");
+//     }};
 
     
-loadBtn.addEventListener("click", plus);
-loadBtn.addEventListener("click", getTitles2);
-loadBtn.addEventListener("click", loadMore);
+// loadBtn.addEventListener("click", plus);
+// loadBtn.addEventListener("click", getTitles2);
+// loadBtn.addEventListener("click", loadMore);
+
+}
+
+
+
+// FILTER
+{
+
+// // SHOW FILTER OPTIONS
+// filter.addEventListener("click", showfilter);
+// function showfilter() {
+//     document.querySelector("#filter-dropdown").classList.toggle("hidden");
+// }
+
+
+// // FILTER FUNCTION
+// const oldest = document.querySelector("#oldest-option");
+// const newest = document.querySelector("#newest-option");
+// oldest.addEventListener("click", filteringOld);
+// newest.addEventListener("click", filteringNew);
+
+// function filteringOld() {
+// counter = 3;
+// document.querySelector("#filter > button").innerHTML = `OLDEST <i class="fa fa-solid fa-caret-down"></i>`;
+// document.querySelector("#load-more").style.display = "none";
+// document.querySelector("#loadButton2").classList.toggle("hidden");
+
+// let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?page=${counter}`;
+
+// let allCovers;
+// fetch(urlImg)
+// .then((response) => response.json())
+// .then((parsedData) => {
+//     allCovers = parsedData;
+//     dataImg = allCovers;
+//     return dataImg;
+// })
+// .catch((error) => (out.innerHTML = "Second place!" + error))
+// // .finally(() => {document.querySelector("#spinner").remove()})
+
+
+// setTimeout(function() {
+//     listCovers(dataImg);
+//     }, 1000)
+     
+    
+//     function listCovers(dataImg) {
+//         covers = [];
+//         for(post of dataImg) {
+//             if (post.caption.rendered.indexOf("gallery") === -1) { 
+//             covers.push(post);}
+//         }
+//             return covers;
+//         };
+
+// setTimeout(() => {
+//     covers = covers.reverse();
+//     out.innerHTML = "";
+//     for(post of covers) {
+//         // console.log(post);
+//           out.innerHTML += `
+//           <div>
+//            <a href="discdetail.html?id=${post.id}">
+//                <img src="${post.guid.rendered}" alt="${post.alt_text}">
+//            </a>
+//           </div>`
+//        }
+//       loadBtn.classList.toggle("hidden");
+//     }, 1100);
+// }
+
+
+// // LOAD MORE FILTER
+// function loadMore2() {
+// counter = counter-1;
+// if(counter === 2) {document.querySelector("#loadButton2").style.display = "none";}
+// console.log(counter);
+// fetch(urlImg)
+// .then((response) => response.json())
+// .then((parsedData) => {
+//     allCovers = parsedData;
+//     dataImg = allCovers;
+//     return dataImg;
+// })
+// .catch((error) => (out.innerHTML = "Second place!" + error))
+// // .finally(() => {document.querySelector("#spinner").remove()})
+
+
+// setTimeout(function() {
+//     listCovers(dataImg);
+//     }, 1000)
+    
+    
+//     function listCovers(dataImg) {
+//         covers = [];
+//         for(post of dataImg) {
+//             if (post.caption.rendered.indexOf("gallery") === -1) { 
+//             covers.push(post);}
+//         }
+//             return covers;
+//         };
+
+// setTimeout(() => {
+//     covers = covers.reverse();
+//     for(post of covers) {
+//         // console.log(post);
+//           out.innerHTML += `
+//           <div>
+//            <a href="discdetail.html?id=${post.id}">
+//                <img src="${post.guid.rendered}" alt="${post.alt_text}">
+//            </a>
+//           </div>`
+//        }
+//       loadBtn.classList.toggle("hidden");
+//     }, 1100);
+
+//     return counter;
+
+// }
+
+
+// document.querySelector("#loadButton2").addEventListener("click", loadMore2);
+
+// function filteringNew() {
+//     window.location.reload();
+// }
+
+}
+
+
+
+// MENU 
+{
+
+    // const menu = document.querySelector("nav");
+    // const showMenu = document.querySelector(".menu"); //home "menu" button
+    // const hideMenu = document.querySelector("#backButton"); //menu "back" button
+    // const splatter = document.querySelector(".splatter-menu") //paint image
+    
+    
+    // showMenu.onclick = function() {showMe()};
+    // hideMenu.onclick = function() {hideMe()};
+    
+    
+    // function showMe() {
+    //     console.log(menu);
+    //     menu.classList.toggle("nav-hidden");
+    //     menu.style.animationName = "dropdown";
+    //     if(splatter) {
+    //     splatter.style.animationName = "dropdown"; }
+    // }
+    
+    // function hideMe() {
+    //     menu.style.animationName = "dropup";
+    //     if(splatter) {
+    //     splatter.style.animationName = "dropup"; }
+    //     setTimeout(() => {
+    //         menu.classList.toggle("nav-hidden");
+    //     }, 300)
+    // }
+
+}
+
+
+
+// GALLERY
+{
+
+    // const display = document.querySelector("#gallery");
+    // const viewImg = document.querySelector(".lightbox");
+    // let urlPosts = "https://momis.world/exam1/wp-json/wp/v2/media?per_page=20";
+    
+    // let allPosts;
+    // fetch(urlPosts)
+    // .then((response) => response.json())
+    // .then((parsedData) => {displayImg(parsedData); allPosts = parsedData})
+    // .catch((error) => (display.innerHTML = "Somethings wrong" + error))
+    // .finally(() => {  document.querySelector("#spinner").remove(); 
+    // document.querySelector("main").style.backgroundColor = "transparent";
+    // document.querySelector("header").style.backgroundColor = "transparent";
+    // })
+    
+    // // show gallery images
+    // function displayImg(data) {
+    //     // console.log(data);
+    //     for(img of data) {
+    //         if(img.caption.rendered.indexOf("gallery") !== -1) {
+    //             // console.log(img.source_url);
+    //             display.innerHTML += `
+    //             <div>
+    //             <img class="gallery-img" src="${img.guid.rendered}" alt="" />
+    //             </div>
+    //             `
+    //         }
+    //     }
+    
+    //     const photos = document.querySelectorAll(".gallery-img");
+    
+    
+    //     photos.forEach(photos => {
+    //         photos.addEventListener("click", e => {
+    //             viewImg.classList.add("active");
+    //             viewImg.style.display = "flex";
+    //             const img = document.createElement("img");
+    //             img.src = photos.src;
+    //             while (viewImg.firstChild) {
+    //                 viewImg.removeChild(viewImg.firstChild)
+    //             }
+    //             viewImg.appendChild(img);
+    //     })
+    //     })   
+    
+    //     viewImg.addEventListener("click", e => {
+    //         if (e.target !== e.currentTarget) return;
+    //         viewImg.classList.remove("active");
+    //         viewImg.style.display = "none";
+    //         viewImg.innerHTML = `<img src="media/back-icon.png" />`;
+    //     });
+    // };
+    
+
+}
+
+
+
+// DETAILS
+{
+
+    // const queryString = window.location.search;
+    // const id = new URLSearchParams(queryString).get('id');
+    // if (!id) {
+    //     window.location = "disc.html";
+    // }
+    
+    // console.log(id-1);
+    
+    // const urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts/${Number(id)-1}`
+    // const outTitle = document.querySelector(".titleHeader");
+    // const errorOut = document.querySelector("main");
+    // const pageTitle = document.querySelector("title");
+    // const out = document.querySelector("#post");
+    // let data = ""
+    
+    // let allPosts;
+    // fetch(urlPosts)
+    // .then((response) => response.json())
+    // .then((parsedData) => {
+    //     allPosts = parsedData;
+    //     data = allPosts;
+    //     return data;
+    // })
+    // .then((data) => {
+    //     listPosts(data);
+    //     allPosts = data;
+    // })
+    // .catch((error) => (
+    //     document.querySelector("#splatter-general").style.display = "none",
+    //     errorOut.innerHTML = `
+    // <div class="error-msg"> 
+    // <h2>There was a problem with retrieving data.</h2>
+    // <p><a href="index.html">Go back to homescreen</a></p>`))
+    // .finally(() => {
+    //     document.querySelector("main").style.backgroundColor = "transparent";
+    //     document.querySelector("header").style.backgroundColor = "transparent";
+    //     document.querySelector("#spinner").remove()
+    // });
+    
+    // function listPosts(posts) {
+    //     console.log(posts);
+    //     pageTitle.innerHTML = `${posts.title.rendered} | WOODZ`
+    //     outTitle.innerHTML = `${posts.title.rendered}`;
+    //         out.innerHTML += `
+    //         <div>${posts.content.rendered}</div>`
+    //     };
+    
+
+}
+
+
+
+// FORM
+{
+
+    // const form = document.querySelector("form#myForm");
+
+    // // radio application
+    // const radioSinger = document.querySelector("input#singer");
+    // const radioModel = document.querySelector("input#model");
+    // const radioActor = document.querySelector("input#actor");
+    // const radioMc = document.querySelector("input#mc");
+    // // radio gender
+    // const female = document.querySelector("input#female");
+    // const male = document.querySelector("input#male");
+    
+    // // name, email, password, about, submit
+    // const myName = document.querySelector("input#fullname");
+    // const email = document.querySelector("input#email");
+    // const password = document.querySelector("input#password");
+    // const about = document.querySelector("#text");
+    // const submitBtn = document.querySelector("#submit");
+    
+    // // invalid input msg
+    // const applicationMsg = document.querySelector("#applicationMsg");
+    // const nameMsg = document.querySelector("#nameMsg");
+    // const genderMsg = document.querySelector("#genderMsg");
+    // const emailMsg = document.querySelector("#emailMsg");
+    // const passwordMsg = document.querySelector("#passwordMsg");
+    // const aboutMsg = document.querySelector("#aboutMsg");
+    
+    // // general fail msg
+    // const responsMsg = document.querySelector("#responsMsg");
+    
+    
+    
+    
+    // submitBtn.addEventListener("click", validateForm);
+    
+    // function validateForm(check) {
+    //     check.preventDefault();
+    
+    //     let submittedName = myName.value.trim();
+    //     console.log("Name: " + submittedName);
+    //     nameMsg.innerHTML = "";
+    //     responsMsg.innerHTML = "";
+    //     if(submittedName.length <= 5) { // Input må være mer enn 5 karakterer
+    //     nameMsg.innerHTML = "Please enter a valid name";
+    //     } border(myName, nameMsg);
+    
+    // let submittedEmail = email.value.trim();
+    // console.log("Email: " + submittedEmail);
+    // emailMsg.innerHTML = "";
+    // if(!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(submittedEmail)) {
+    // emailMsg.innerHTML = "Please enter a valid email";
+    // } border(email, emailMsg);
+    // // RegEx er tatt fra: https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149
+    
+    // let submittedPassword = password.value.trim();
+    // console.log("Password: " + submittedPassword);
+    // passwordMsg.innerHTML = "";
+    // if(submittedPassword.length <= 15) { // Pasordet (subject) må være lengre enn 15 karakterer
+    // passwordMsg.innerHTML = "Password must be at least 16 characters.";
+    // } border(password, passwordMsg);
+    
+    // let submittedAbout = about.value.trim();
+    // console.log("About me: " + submittedAbout);
+    // aboutMsg.innerHTML = "";
+    // if(submittedAbout.length <= 25) { // text (message content) input må være mer enn 25 karakterer.
+    // aboutMsg.innerHTML = "Please enter a minimum of 26 characters.";
+    // } border(about, aboutMsg);
+    
+    // // Display error message on the top of the page
+    // if(nameMsg.innerHTML === "" && passwordMsg.innerHTML === "" && emailMsg.innerHTML === "" && aboutMsg.innerHTML === "") {
+    //     form.innerHTML = `<p class="align">All good to go!</p>
+    //     <a class="align" href="index.html"><p>Back to homepage</p></a>"`;
+    //     form.querySelector("p").style.fontSize = "2rem";
+    
+    // } else { responsMsg.innerHTML = `<p>Something seems to be missing.. <br> Please check again</p>`;
+    // }
+    
+    // // error message for radio buttons in application
+    // if(radioSinger.checked === true || radioModel.checked === true || radioActor.checked === true || radioMc.checked === true) {
+    //     applicationMsg.innerHTML = "";
+    // } else {
+    //     applicationMsg.innerHTML = "Please choose one";
+    // } border(radioSinger, applicationMsg);
+    
+    // //error message for radio buttons in gender
+    // if(female.checked === true || male.checked === true) {
+    //     genderMsg.innerHTML = "";
+    // } else {
+    //     genderMsg.innerHTML = "Please choose one";
+    // } border(female, genderMsg);
+    
+    // };
+    
+    // function border(value, msg) {
+    //     // console.log("hey");
+    //     if(msg.innerText === "") {
+    //     value.style.border = "1px solid white";
+    //     } else value.style.border = "1px solid red";
+    //     msg.style.color = "brown";
+    // };
+
+}
