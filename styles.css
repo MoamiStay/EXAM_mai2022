@@ -417,6 +417,8 @@ z-index: 1;
 #carousel-section {
     clear: both;
     display: flex;
+    position: relative;
+    z-index: 1;
     flex-direction: row;
     max-width: 100%;
     animation-duration: 3s;
