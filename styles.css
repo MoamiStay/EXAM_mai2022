@@ -214,6 +214,23 @@ li>a {
      }
    }
 
+   @keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+   }
+
+   @keyframes fadeOut {
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
+
+.fadeIn {
+    animation: fadeIn 0.1s linear;
+}
+
+.fadeOut {
+    animation: fadeOut 0.1s linear forwards;
+}
 
 nav {
     align-items: center;
@@ -360,6 +377,7 @@ z-index: 1;
 
 #load-more, #load-more2 {
     display: flex;
+    margin-bottom: 70px;
 }
 
 #loadButton, #loadButton2, #filter > button {
@@ -506,6 +524,11 @@ z-index: 1;
     grid-column: auto;
 }
 
+.lock-bg {
+    height: 100%;
+    overflow-y: hidden;
+}
+
 #form {
     clear: both;
     width: 85%;
@@ -586,7 +609,18 @@ h1, #carousel-section, .style-border, .static-border, #posts div, #dropdown, #fi
     max-height: 85%;
 }
 
+#exit {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#exit img, #exit p {
+    width: 5vw;
+    margin: 0;
+}
+
 .active {
+    flex-direction: column;
     position: fixed;
     z-index: 5;
     top: 0;

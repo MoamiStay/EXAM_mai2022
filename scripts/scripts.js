@@ -1,26 +1,12 @@
 let counter = 2;
-// let urlPosts = `https://momis.world/exam1/wp-json/wp/v2/posts?page=${counter}`;
 let urlImg = `https://momis.world/exam1/wp-json/wp/v2/media?page=${counter}`;
 const out = document.querySelector("#posts");
 const filter = document.querySelector("#filter");
 const outError = document.querySelector("main");
 const loadBtn = document.querySelector("#load-more");
 const loader = document.querySelector("#loadButton");
-// let albumTitles = [];
 let covers = [];
-// let data = "";
 let dataImg = "";
-
-//To get Title
-// let allPosts;
-// fetch(urlPosts)
-// .then((response) => response.json())
-// .then((parsedData) => {
-//     allPosts = parsedData;
-//     data = allPosts;
-//     return data;
-// })
-// .catch((error) => (out.innerHTML = "First place!" + error))
 
 
 //To get cover image
@@ -32,12 +18,6 @@ fetch(urlImg)
     dataImg = allCovers;
     return dataImg;
 })
-//     setTimeout(() => {
-//         listCovers(parsedData);
-//         document.querySelector("main").style.backgroundColor = "transparent";
-//         document.querySelector("header").style.backgroundColor = "transparent";
-//         allPosts = parsedData;}, 1500);
-// })
 .catch((error) => (
     document.querySelector("#splatter-general").style.display = "none",
     outError.innerHTML = `
@@ -47,18 +27,13 @@ fetch(urlImg)
 // .finally(() => {document.querySelector("#spinner").remove()})
 
 
-//////////////////////////////////
-
-
 setTimeout(function() {
-// getTitles(data);
 listCovers(dataImg);
 }, 1000)
 
 
 
 function listCovers(dataImg) {
-    // out.innerHTML = "";
     covers = [];
     for(post of dataImg) {
         // console.log(post.caption.rendered.indexOf("gallery"));
@@ -69,21 +44,8 @@ function listCovers(dataImg) {
     };
 
 
-// Collect all titles in an array
-// function getTitles(data) {
-//     albumTitles = [];
-//     for(title of data) {
-//         // console.log(title.categories[0]);
-//         // console.log(title);
-//         if(title.categories[0] === 3) {
-//         albumTitles.push(title.title);
-//     }}     return albumTitles;
-// };
-
-
 setTimeout(() => {
     out.innerHTML = "";
-    // document.querySelector("#spinner").remove()
     for(post of covers) {
           out.innerHTML += `
           <div>
@@ -96,27 +58,7 @@ setTimeout(() => {
     }, 1100);
 
 
-// function plus() {
-//     return counter = counter+1;
-// }
-
-// function getTitles2() {
-//     listCovers(dataImg);
-//     // getTitles(data);
-// }
-
 function loadMore() {
-//To get Title
-// let allPosts;
-// fetch(urlPosts)
-// .then((response) => response.json())
-// .then((parsedData) => {
-//     allPosts = parsedData;
-//     data = allPosts;
-//     return data;
-// })
-// .catch((error) => (out.innerHTML = "First place!" + error))
-
 
 //To get cover image
 counter = counter+1;
@@ -130,25 +72,16 @@ fetch(urlImg)
     dataImg = allCovers;
     return dataImg;
 })
-//     setTimeout(() => {
-//         listCovers(parsedData);
-//         document.querySelector("main").style.backgroundColor = "transparent";
-//         document.querySelector("header").style.backgroundColor = "transparent";
-//         allPosts = parsedData;}, 1500);
-// })
 .catch((error) => (out.innerHTML = "Second place!" + error))
 // .finally(() => {document.querySelector("#spinner").remove()})
 
 
 setTimeout(function() {
-    // getTitles(data);
     listCovers(dataImg);
     }, 1000)
     
     
-    
     function listCovers(dataImg) {
-        // out.innerHTML = "";
         covers = [];
         for(post of dataImg) {
             // console.log(post.caption.rendered.indexOf("gallery"));
@@ -157,18 +90,6 @@ setTimeout(function() {
         }
             return covers;
         };
-    
-    
-    // Collect all titles in an array
-    // function getTitles(data) {
-    //     albumTitles = [];
-    //     for(title of data) {
-    //         // console.log(title.categories[0]);
-    //         // console.log(title);
-    //         if(title.categories[0] === 3) {
-    //         albumTitles.push(title.title);
-    //     }}     return albumTitles;
-    // };
 
 
 setTimeout(() => {
@@ -185,9 +106,7 @@ setTimeout(() => {
     }, 1100);
 
 };
-    
-// loadBtn.addEventListener("click", plus);
-// loadBtn.addEventListener("click", getTitles2);
+
 loadBtn.addEventListener("click", loadMore);
 
 
