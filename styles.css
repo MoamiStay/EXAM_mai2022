@@ -414,7 +414,7 @@ z-index: 1;
 }
 
 /* CAROUSEL DESKTOP */
-#carousel-section {
+/* #carousel-section {
     clear: both;
     display: flex;
     position: relative;
@@ -446,12 +446,13 @@ z-index: 1;
 
 #carousel-section section img {
     max-width: 100%;
- }
+ } */
+ 
  /* CAROUSEL DESKTOP */
 
 
 /* MOBILE CAROUSEL */
-/* #carousel-section, .cover2 a {
+#carousel-section, .cover2 a {
     clear: both;
     display: flex;
     justify-content: center;
@@ -479,7 +480,7 @@ z-index: 1;
     color: var(--woodz-blue);
     font-size: 2rem;
     position: relative;
-} */
+}
 /* MOBILE CAROUSEL */
 
 
