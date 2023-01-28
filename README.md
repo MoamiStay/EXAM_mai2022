@@ -1,7 +1,7 @@
 # EXAM_mai2022
 
 ![WOODZ homepage](./media/readme/woodz.jpg "WOODZ homepage")  
-![Visit deployed site here](https://woodz.netlify.app "WODDZ homepage")
+[Visit deployed site here](https://woodz.netlify.app "WODDZ homepage")
 
 ---
 
