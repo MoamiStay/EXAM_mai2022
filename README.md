@@ -5,7 +5,7 @@
 
 ---
 
-# Work process and result
+# Process and result
 
 We could choose any topic for what to base the content of the website on. I chose to create a homepage for a music artist named WOODZ where the blogs posts content would be represented as the discography.
 
